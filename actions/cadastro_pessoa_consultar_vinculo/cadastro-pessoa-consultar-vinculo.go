@@ -145,7 +145,7 @@ type RequestResponseHeader struct {
 }
 
 type RequestResponseBody struct {
-	CodPessoa *int                       `json:"CodPessoa,omitempty"` // Código da pessoa.
+	CodPessoa *string                    `json:"CodPessoa,omitempty"` // Código da pessoa.
 	Tipos     *[]RequestResponseBodyTipo `json:"Tipos,omitempty"`     //
 }
 
