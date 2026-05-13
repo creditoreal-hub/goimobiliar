@@ -6,7 +6,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/itispx/goimobiliar/erros"
+	"github.com/creditoreal-hub/goimobiliar/erros"
 )
 
 var ACTION = "LOGOUT"

@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/itispx/goimobiliar/consts"
-	"github.com/itispx/goimobiliar/erros"
-	"github.com/itispx/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/consts"
+	"github.com/creditoreal-hub/goimobiliar/erros"
+	"github.com/creditoreal-hub/goimobiliar/session"
 )
 
 var ACTION = "CTAPAG_RELATORIO_SLIP"

@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/itispx/goimobiliar/actions/login"
-	"github.com/itispx/goimobiliar/actions/logout"
-	"github.com/itispx/goimobiliar/erros"
+	"github.com/creditoreal-hub/goimobiliar/actions/login"
+	"github.com/creditoreal-hub/goimobiliar/actions/logout"
+	"github.com/creditoreal-hub/goimobiliar/erros"
 )
 
 type Session struct {

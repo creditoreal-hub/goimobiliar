@@ -6,7 +6,7 @@ Ela expõe actions organizadas por pacote com entradas e saídas tipadas, além 
 ## Instalação
 
 ```bash
-go get github.com/itispx/goimobiliar
+go get github.com/creditoreal-hub/goimobiliar
 ```
 
 ## Autenticação
@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/itispx/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/session"
 )
 
 func main() {
@@ -49,8 +49,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/itispx/goimobiliar/actions/condom_condominio_consultar"
-	"github.com/itispx/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/actions/condom_condominio_consultar"
+	"github.com/creditoreal-hub/goimobiliar/session"
 )
 
 func main() {
@@ -84,7 +84,6 @@ func main() {
 `RunMulti` executa a action para várias entradas, cuidando da autenticação e do encerramento de sessão por item, e pode rodar em paralelo.
 
 - `RunMultiInput` contém os seguintes parâmetros:
-
   - `Parallel` (bool): indica se as entradas serão processadas em paralelo.
   - `Entries` (slice): cada item com `Endpoint`, `ImobId`, `UserId`, `UserPass` e `Input` (o `ActionInput` daquela action).
 
@@ -103,8 +102,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/itispx/goimobiliar/actions/condom_condominio_consultar"
-	"github.com/itispx/goimobiliar/consts"
+	"github.com/creditoreal-hub/goimobiliar/actions/condom_condominio_consultar"
+	"github.com/creditoreal-hub/goimobiliar/consts"
 )
 
 func main() {
