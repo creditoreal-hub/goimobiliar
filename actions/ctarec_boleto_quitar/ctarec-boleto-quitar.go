@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CTAREC_BOLETO_QUITAR"
@@ -20,16 +21,16 @@ type ActionInput struct {
 	DocCapaId                 *int     `json:"DocCapaId,omitempty"`                 // *Código do boleto no sistema.
 	DataPagamento             *string  `json:"DataPagamento,omitempty"`             // *Data do pagamento.
 	OrigemQuitacao            *string  `json:"OrigemQuitacao,omitempty"`            // *Origem.
-	VlrJuros                  *float64 `json:"VlrJuros,omitempty"`                  // Valor dos juros.
-	VlrMulta                  *float64 `json:"VlrMulta,omitempty"`                  // Valor da multa.
-	VlrMultaAdministrativa    *float64 `json:"VlrMultaAdministrativa,omitempty"`    // *Valor multa administrativa.
-	VlrDescontoAdministrativo *float64 `json:"VlrDescontoAdministrativo,omitempty"` // *Valor desconto administrativo.
-	VlrAcrescimoOutros        *float64 `json:"VlrAcrescimoOutros,omitempty"`        // *Valor de acrescimos extras (não incluir multa e ou juros).
-	VlrDescontoProprietario   *float64 `json:"VlrDescontoProprietario,omitempty"`   // *Valor do desconto concedido pelo proprietario.
-	VlrDescontos              *float64 `json:"VlrDescontos,omitempty"`              // *Valor total dos descontos.
+	VlrJuros                  *types.Float64 `json:"VlrJuros,omitempty"`                  // Valor dos juros.
+	VlrMulta                  *types.Float64 `json:"VlrMulta,omitempty"`                  // Valor da multa.
+	VlrMultaAdministrativa    *types.Float64 `json:"VlrMultaAdministrativa,omitempty"`    // *Valor multa administrativa.
+	VlrDescontoAdministrativo *types.Float64 `json:"VlrDescontoAdministrativo,omitempty"` // *Valor desconto administrativo.
+	VlrAcrescimoOutros        *types.Float64 `json:"VlrAcrescimoOutros,omitempty"`        // *Valor de acrescimos extras (não incluir multa e ou juros).
+	VlrDescontoProprietario   *types.Float64 `json:"VlrDescontoProprietario,omitempty"`   // *Valor do desconto concedido pelo proprietario.
+	VlrDescontos              *types.Float64 `json:"VlrDescontos,omitempty"`              // *Valor total dos descontos.
 	SeguroConteudo            *string  `json:"SeguroConteudo,omitempty"`            // Pagou o seguro conteúdo. Valor default é 'N'.
-	VlrAcrescimos             *float64 `json:"VlrAcrescimos,omitempty"`             // *Valor total dos acrescimos (multa e juros) mais o valor seguro conteúdo.
-	VlrPagamento              *float64 `json:"VlrPagamento,omitempty"`              // *Valor pago.
+	VlrAcrescimos             *types.Float64 `json:"VlrAcrescimos,omitempty"`             // *Valor total dos acrescimos (multa e juros) mais o valor seguro conteúdo.
+	VlrPagamento              *types.Float64 `json:"VlrPagamento,omitempty"`              // *Valor pago.
 	CodBanco                  *int     `json:"CodBanco,omitempty"`                  // *Código do banco.
 	Complemento               *string  `json:"Complemento,omitempty"`               // *
 	IdAdmCCDeposito           *int     `json:"IdAdmCCDeposito,omitempty"`           // Id interno da conta corrente que recebeu o deposito.

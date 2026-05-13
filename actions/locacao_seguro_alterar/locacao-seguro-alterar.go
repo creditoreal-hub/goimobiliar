@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_SEGURO_ALTERAR"
@@ -26,9 +27,9 @@ type ActionInput struct {
 	TipoSeguro         *string  `json:"TipoSeguro,omitempty"`         // *Tipo do seguro contratado (Fiança, Incêndio, etc.).
 	CodSeguradora      *int     `json:"CodSeguradora,omitempty"`      // *Código interno da seguradora no Imibiliar.
 	CodCorretor        *int     `json:"CodCorretor,omitempty"`        // Código interno da empresa corretora do seguro no Imobiliar.
-	ValorSegurado      *float64 `json:"ValorSegurado,omitempty"`      // *Valor segurado contratado.
-	ValorPremioTotal   *float64 `json:"ValorPremioTotal,omitempty"`   // *Valor total do prêmio a ser pago à seguradora.
-	ValorParcela       *float64 `json:"ValorParcela,omitempty"`       // *Valor da parcela.
+	ValorSegurado      *types.Float64 `json:"ValorSegurado,omitempty"`      // *Valor segurado contratado.
+	ValorPremioTotal   *types.Float64 `json:"ValorPremioTotal,omitempty"`   // *Valor total do prêmio a ser pago à seguradora.
+	ValorParcela       *types.Float64 `json:"ValorParcela,omitempty"`       // *Valor da parcela.
 	NumeroParcelas     *int     `json:"NumeroParcelas,omitempty"`     // Número de parcelas.
 }
 

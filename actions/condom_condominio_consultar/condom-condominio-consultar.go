@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CONDOM_CONDOMINIO_CONSULTAR"
@@ -147,7 +148,7 @@ type RequestResponseBody struct {
 	CodCondominio        *int                        `json:"CodCondominio,omitempty"`        //	Código do condomínio.
 	NomeCondominio       *string                     `json:"NomeCondominio,omitempty"`       // Nome do condomínio.
 	CNPJ                 *int                        `json:"CNPJ,omitempty"`                 // CNPJ do condomínio.
-	TotalFracao          *float64                    `json:"TotalFracao,omitempty"`          //	Total das frações das economias.
+	TotalFracao          *types.Float64                    `json:"TotalFracao,omitempty"`          //	Total das frações das economias.
 	TotaldeBlocos        *int                        `json:"TotaldeBlocos,omitempty"`        //	Total de blocos do condomínio.
 	DiaVencimentoDoc     *int                        `json:"DiaVencimentoDoc,omitempty"`     //	Dia de vencimento do boleto de condomínio.
 	UltimaCompetenciaDoc *string                     `json:"UltimaCompetenciaDoc,omitempty"` // Competência do último boleto gerado no formato YYYYMM.
@@ -168,7 +169,7 @@ type RequestResponseBody struct {
 	CodAdvogadoInad      *int                        `json:"CodAdvogadoInad,omitempty"`      // Código do Advogado Inadimplente.
 	NomeAdvogadoInad     *string                     `json:"NomeAdvogadoInad,omitempty"`     // Nome do Advogado Inadimplente.
 	HonorarioDias        *int                        `json:"HonorarioDias,omitempty"`        // Número de dias a partir do vencimento do boleto para incidência de honorários.
-	HonorarioPercentual  *float64                    `json:"HonorarioPercentual,omitempty"`  // Percentual de honorários a ser aplicado sobre o total do boleto.
+	HonorarioPercentual  *types.Float64                    `json:"HonorarioPercentual,omitempty"`  // Percentual de honorários a ser aplicado sobre o total do boleto.
 }
 
 type RequestResponseBodyBloco struct {

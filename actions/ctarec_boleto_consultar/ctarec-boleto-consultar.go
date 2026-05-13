@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CTAREC_BOLETO_CONSULTAR"
@@ -162,7 +163,7 @@ type RequestResponseBody struct {
 	IdCodBanco              *string   `json:"IdCodBanco,omitempty"`              //	String(5)	Código do banco com dígito verificador.
 	LinhaDigitavel          *string   `json:"LinhaDigitavel,omitempty"`          //	String(60)	Linha digitável do boleto.
 	PixQrCode               *string   `json:"PixQrCode,omitempty"`               //	String(390)	Qr Code do Pix vinculado ao boleto.
-	VlrDocumento            *float64  `json:"VlrDocumento,omitempty"`            //	Number(12,2)	Valor do documento.
+	VlrDocumento            *types.Float64  `json:"VlrDocumento,omitempty"`            //	Number(12,2)	Valor do documento.
 	NossoNumeroOrig         *string   `json:"NossoNumeroOrig,omitempty"`         //	String(13)	Nosso Numero original.
 	LocalPagamento          *string   `json:"LocalPagamento,omitempty"`          //	String(80)	Local de pagamento.
 	NomeCedente             *string   `json:"NomeCedente,omitempty"`             //	String(70)	Nome do cedente.
@@ -176,11 +177,11 @@ type RequestResponseBody struct {
 	Aceite                  *string   `json:"Aceite,omitempty"`                  //	String(13)	Aceite do documento.
 	UsoBanco                *string   `json:"UsoBanco,omitempty"`                //	String(13)	Informações de uso do banco.
 	Moeda                   *string   `json:"Moeda,omitempty"`                   //	String(20)	Moeda do documento.
-	VlrAcrescOutr           *float64  `json:"VlrAcrescOutr,omitempty"`           //	Number(15,2)	Valor de outros acréscimos.
+	VlrAcrescOutr           *types.Float64  `json:"VlrAcrescOutr,omitempty"`           //	Number(15,2)	Valor de outros acréscimos.
 	VlrDesconto             *string   `json:"VlrDesconto,omitempty"`             //	String(15)	Valor de desconto.
-	VlrDescOutr             *float64  `json:"VlrDescOutr,omitempty"`             //	Number(12,2)	Valor de outros descontos.
+	VlrDescOutr             *types.Float64  `json:"VlrDescOutr,omitempty"`             //	Number(12,2)	Valor de outros descontos.
 	VlrMulta                *string   `json:"VlrMulta,omitempty"`                //	String	Valor da multa mais juros.
-	VlrSegCont              *float64  `json:"VlrSegCont,omitempty"`              //	Number(12,2)	Valor do seguro conteúdo.
+	VlrSegCont              *types.Float64  `json:"VlrSegCont,omitempty"`              //	Number(12,2)	Valor do seguro conteúdo.
 	Sacado1                 *string   `json:"Sacado1,omitempty"`                 //	String	Primeira linha de informações do sacado.
 	Sacado2                 *string   `json:"Sacado2,omitempty"`                 //	String	Segunda linha de informações do sacado.
 	Sacado3                 *string   `json:"Sacado3,omitempty"`                 //	String	Terceira linha de informações do sacado.

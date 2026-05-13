@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_IMOVEL_ALTERAR"
@@ -60,19 +61,19 @@ type ActionInput struct {
 	SenhaAdmCondom               *string                      `json:"SenhaAdmCondom,omitempty"`               // Senha de acesso as administradoras de condomínio. OBSERVAÇÃO: Para fins de segurança, a senha informada neste campo vem criptografada e deve ser um tratamento específico. Ao invés de ser comparada diretamente com a senha digitada pelo usuário, a senha digitada deve ser convertida para maiúsculo e então criptografada em MD5. O valor obtido em MD5 é que deve ser usada na comparação. Exemplo em pseudo-linguagem:
 	ObsOutras                    *string                      `json:"ObsOutras,omitempty"`                    // Observações gerais.
 	ObsInternet                  *string                      `json:"ObsInternet,omitempty"`                  // Observações que devem ser enviadas para o site na internet.
-	ValorCondominio              *float64                     `json:"ValorCondominio,omitempty"`              // Valor mensal do condomínio do imóvel.
-	ValorIPTU                    *float64                     `json:"ValorIPTU,omitempty"`                    // Valor mensal de IPTU do imóvel.
+	ValorCondominio              *types.Float64                     `json:"ValorCondominio,omitempty"`              // Valor mensal do condomínio do imóvel.
+	ValorIPTU                    *types.Float64                     `json:"ValorIPTU,omitempty"`                    // Valor mensal de IPTU do imóvel.
 	NroInscricaoIPTU             *int                         `json:"NroInscricaoIPTU,omitempty"`             // Número de inscrição do IPTU.
 	InformativoDOC               *string                      `json:"InformativoDOC,omitempty"`               // Texto que deve constar na área do informativo do DOC.
 	InstrucaoDOC                 *string                      `json:"InstrucaoDOC,omitempty"`                 // Texto que deve constar na área de instruções do DOC.
 	IncideIRFTxAdm               *string                      `json:"IncideIRFTxAdm,omitempty"`               // Indica se incide imposto de renda sobre a taxa de administração.
 	FormaCalcPagto               *string                      `json:"FormaCalcPagto,omitempty"`               // Indica a forma de cálculo para o pagamento ao proprietário.
-	TaxaIntermediacao            *float64                     `json:"TaxaIntermediacao,omitempty"`            // Percentual da taxa de intermediação.
+	TaxaIntermediacao            *types.Float64                     `json:"TaxaIntermediacao,omitempty"`            // Percentual da taxa de intermediação.
 	IncidenciaTaxaAdm            *string                      `json:"IncidenciaTaxaAdm,omitempty"`            // Incidência da taxa de administração.
-	TaxaAdm                      *float64                     `json:"TaxaAdm,omitempty"`                      // Taxa de administração do imóvel em forma de um percentual sobre o aluguel. Se for um valor fixo em Reais então informá-lo no campo 'ValorTaxaAdm' mas apenas um deles deve ser informado.
-	ValorTaxaAdm                 *float64                     `json:"ValorTaxaAdm,omitempty"`                 // Taxa de administração do imóvel em forma de um valor fixo em Reais. Se for um percentual sobre o aluguel então informá-lo no campo 'TaxaAdm' mas apenas um deles deve ser informado.
+	TaxaAdm                      *types.Float64                     `json:"TaxaAdm,omitempty"`                      // Taxa de administração do imóvel em forma de um percentual sobre o aluguel. Se for um valor fixo em Reais então informá-lo no campo 'ValorTaxaAdm' mas apenas um deles deve ser informado.
+	ValorTaxaAdm                 *types.Float64                     `json:"ValorTaxaAdm,omitempty"`                 // Taxa de administração do imóvel em forma de um valor fixo em Reais. Se for um percentual sobre o aluguel então informá-lo no campo 'TaxaAdm' mas apenas um deles deve ser informado.
 	IncidenciaValorMinimoTaxaAdm *string                      `json:"IncidenciaValorMinimoTaxaAdm,omitempty"` // Indicação de cláusula de valor mínimo de taxa de administração.
-	ValorMinimoTaxaAdm           *float64                     `json:"ValorMinimoTaxaAdm,omitempty"`           // Valor mínimo de taxa de administração quando indicado 'Cláusula de valor mínimo de taxa de administração' (IncideValorMinimoTaxaAdm).
+	ValorMinimoTaxaAdm           *types.Float64                     `json:"ValorMinimoTaxaAdm,omitempty"`           // Valor mínimo de taxa de administração quando indicado 'Cláusula de valor mínimo de taxa de administração' (IncideValorMinimoTaxaAdm).
 	CobrancaAntecipada           *string                      `json:"CobrancaAntecipada,omitempty"`           // Indica se tem desconto de pontualidade quando pago antes do vencimento.
 	RamalAgua                    *string                      `json:"RamalAgua,omitempty"`                    // Identificação do ramal/registro de água.
 	CodAgencia                   *int                         `json:"CodAgencia,omitempty"`                   // Código da agência/loja de captação do imóvel.

@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CONDOM_ECONOMIA_CONSULTAR"
@@ -162,12 +163,12 @@ type RequestResponseBody struct {
 	TipoPessoa                     *string  `json:"TipoPessoa,omitempty"`                     // Tipo da pessoa.
 	CpfCnpj                        *string  `json:"CpfCnpj,omitempty"`                        // CPF/CNPJ do condômino.
 	QtdeDormitorios                *int     `json:"QtdeDormitorios,omitempty"`                // Quantidade de dormitórios.
-	Fracao                         *float64 `json:"Fracao,omitempty"`                         // Fracao da economia/unidade.
+	Fracao                         *types.Float64 `json:"Fracao,omitempty"`                         // Fracao da economia/unidade.
 	EmiteExtrato                   *string  `json:"EmiteExtrato,omitempty"`                   // Indica qual tipo de extrato.
 	ExportaLocacao                 *string  `json:"ExportaLocacao,omitempty"`                 // Indica se exporta para locação.
 	EmiteEtiqueta                  *string  `json:"EmiteEtiqueta,omitempty"`                  // Indica se emite etiqueta.
 	TarifaBoleto                   *string  `json:"TarifaBoleto,omitempty"`                   // Indica se o boleto tem tarifa.
-	ValorTarifaBoleto              *float64 `json:"ValorTarifaBoleto,omitempty"`              // Valor fixado da tarifa.
+	ValorTarifaBoleto              *types.Float64 `json:"ValorTarifaBoleto,omitempty"`              // Valor fixado da tarifa.
 	CodFornecedorAdministradoraLoc *int     `json:"CodFornecedorAdministradoraLoc,omitempty"` // Código de fornecedor da administradora da locação.
 	CodImovelNaAdministradoraLoc   *int     `json:"CodImovelNaAdministradoraLoc,omitempty"`   // Código do imóvel na locação desta administradora.
 	CodCompensacaoIntegrada        *string  `json:"CodCompensacaoIntegrada,omitempty"`        // Código do imóvel para compensação integrada com outra administradora da locação.

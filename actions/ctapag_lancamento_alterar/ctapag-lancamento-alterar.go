@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CTAPAG_LANCAMENTO_ALTERAR"
@@ -38,17 +39,17 @@ type ActionInput struct {
 	ContaCorrente              *string  `json:"ContaCorrente,omitempty"`              // Número da conta corrente da qual originará o pagamento bancário quando aplicado.
 	CodigoBarras               *string  `json:"CodigoBarras,omitempty"`               // Código de barras do documento (* obrigatório se origem for 'B')
 	PixQrCode                  *string  `json:"PixQrCode,omitempty"`                  // QR Code.
-	ValorBruto                 *float64 `json:"ValorBruto,omitempty"`                 // Valor bruto do documento/parcela.
-	ValorServicos              *float64 `json:"ValorServicos,omitempty"`              // Valor dos serviços. Se não informado, a base de cálculo será ValorBruto.
-	ValorBaseCalculoIss        *float64 `json:"ValorBaseCalculoIss,omitempty"`        // Base de cálculo do ISS. Se não informado, a base de cálculo será ValorServicos.
-	ValorRetencaoInss          *float64 `json:"ValorRetencaoInss,omitempty"`          // Valor do INSS a ser retido.
-	ValorRetencaoIss           *float64 `json:"ValorRetencaoIss,omitempty"`           // Valor do ISS a ser retido.
-	ValorRetencaoIrf           *float64 `json:"ValorRetencaoIrf,omitempty"`           // Valor do IRF a ser retido.
-	ValorRetencaoFederal       *float64 `json:"ValorRetencaoFederal,omitempty"`       // Valor da retenção federal a ser retida.
-	ValorJuros                 *float64 `json:"ValorJuros,omitempty"`                 // Valor do juros.
-	ValorDescontoIncondicional *float64 `json:"ValorDescontoIncondicional,omitempty"` // Valor do desconto incondicional. Este desconto é abatido da base de cálculo de impostos.
-	ValorDescontoCondicional   *float64 `json:"ValorDescontoCondicional,omitempty"`   // Valor do desconto condicional. Este desconto não é abatido da base de cálculo de impostos.
-	Comissao                   *float64 `json:"Comissao,omitempty"`                   // Valor de comissão.
+	ValorBruto                 *types.Float64 `json:"ValorBruto,omitempty"`                 // Valor bruto do documento/parcela.
+	ValorServicos              *types.Float64 `json:"ValorServicos,omitempty"`              // Valor dos serviços. Se não informado, a base de cálculo será ValorBruto.
+	ValorBaseCalculoIss        *types.Float64 `json:"ValorBaseCalculoIss,omitempty"`        // Base de cálculo do ISS. Se não informado, a base de cálculo será ValorServicos.
+	ValorRetencaoInss          *types.Float64 `json:"ValorRetencaoInss,omitempty"`          // Valor do INSS a ser retido.
+	ValorRetencaoIss           *types.Float64 `json:"ValorRetencaoIss,omitempty"`           // Valor do ISS a ser retido.
+	ValorRetencaoIrf           *types.Float64 `json:"ValorRetencaoIrf,omitempty"`           // Valor do IRF a ser retido.
+	ValorRetencaoFederal       *types.Float64 `json:"ValorRetencaoFederal,omitempty"`       // Valor da retenção federal a ser retida.
+	ValorJuros                 *types.Float64 `json:"ValorJuros,omitempty"`                 // Valor do juros.
+	ValorDescontoIncondicional *types.Float64 `json:"ValorDescontoIncondicional,omitempty"` // Valor do desconto incondicional. Este desconto é abatido da base de cálculo de impostos.
+	ValorDescontoCondicional   *types.Float64 `json:"ValorDescontoCondicional,omitempty"`   // Valor do desconto condicional. Este desconto não é abatido da base de cálculo de impostos.
+	Comissao                   *types.Float64 `json:"Comissao,omitempty"`                   // Valor de comissão.
 	NomePagador                *string  `json:"NomePagador,omitempty"`                // Nome do beneficiário. (Para liquidação de títulos se este for diferente do condomínio).
 	TipoPessoaPagador          *string  `json:"TipoPessoaPagador,omitempty"`          // Tipo de pessoa do pagador. (Para liquidação de títulos se este for diferente do condomínio).
 	CpfCnpjPagador             *int     `json:"CpfCnpjPagador,omitempty"`             // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).

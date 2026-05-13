@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CTAPAG_CODBARRAS_CONSULTAR"
@@ -174,16 +175,16 @@ type RequestResponseBody struct {
 	TotalParcelas         *int     `json:"TotalParcelas,omitempty"`         // Quantidade total de parcelas.
 	Complemento           *string  `json:"Complemento,omitempty"`           // Complemento descritivo do lançamento.
 	NumeroDocumento       *string  `json:"NumeroDocumento,omitempty"`       // Número do documento do fornecedor.
-	ValorBruto            *float64 `json:"ValorBruto,omitempty"`            // Valor bruto do documento/parcela.
-	ValorServicos         *float64 `json:"ValorServicos,omitempty"`         // Valor dos serviços. Se não informado, a base de cálculo será ValorBruto.
-	ValorBaseCalculoIss   *float64 `json:"ValorBaseCalculoIss,omitempty"`   // Base de cálculo do ISS. Se não informado, a base de cálculo será ValorServicos.
-	ValorRetencaoInss     *float64 `json:"ValorRetencaoInss,omitempty"`     // Valor do INSS a ser retido.
-	ValorRetencaoIss      *float64 `json:"ValorRetencaoIss,omitempty"`      // Valor do ISS a ser retido.
-	ValorRetencaoIrf      *float64 `json:"ValorRetencaoIrf,omitempty"`      // Valor do IRF a ser retido.
-	ValorRetencaoFederal  *float64 `json:"ValorRetencaoFederal,omitempty"`  // Valor da retenção federal a ser retida.
-	ValorDesconto         *float64 `json:"ValorDesconto,omitempty"`         // Valor do desconto.
-	ValorJuros            *float64 `json:"ValorJuros,omitempty"`            // Valor dos juros.
-	Comissao              *float64 `json:"Comissao,omitempty"`              // Valor de comissão.
+	ValorBruto            *types.Float64 `json:"ValorBruto,omitempty"`            // Valor bruto do documento/parcela.
+	ValorServicos         *types.Float64 `json:"ValorServicos,omitempty"`         // Valor dos serviços. Se não informado, a base de cálculo será ValorBruto.
+	ValorBaseCalculoIss   *types.Float64 `json:"ValorBaseCalculoIss,omitempty"`   // Base de cálculo do ISS. Se não informado, a base de cálculo será ValorServicos.
+	ValorRetencaoInss     *types.Float64 `json:"ValorRetencaoInss,omitempty"`     // Valor do INSS a ser retido.
+	ValorRetencaoIss      *types.Float64 `json:"ValorRetencaoIss,omitempty"`      // Valor do ISS a ser retido.
+	ValorRetencaoIrf      *types.Float64 `json:"ValorRetencaoIrf,omitempty"`      // Valor do IRF a ser retido.
+	ValorRetencaoFederal  *types.Float64 `json:"ValorRetencaoFederal,omitempty"`  // Valor da retenção federal a ser retida.
+	ValorDesconto         *types.Float64 `json:"ValorDesconto,omitempty"`         // Valor do desconto.
+	ValorJuros            *types.Float64 `json:"ValorJuros,omitempty"`            // Valor dos juros.
+	Comissao              *types.Float64 `json:"Comissao,omitempty"`              // Valor de comissão.
 	CodigoBarras          *string  `json:"CodigoBarras,omitempty"`          // Código de barras do documento (* obrigatório se origem for 'B')
 	PrevisaoReal          *string  `json:"PrevisaoReal,omitempty"`          // Indicação de lançamento previsto ou real.
 	Frequencia            *string  `json:"Frequencia,omitempty"`            // Define se lançamento é único ou permanente.

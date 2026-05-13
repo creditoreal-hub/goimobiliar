@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_SALDO_PROPRIETARIO"
@@ -148,7 +149,7 @@ type RequestResponseHeader struct {
 type RequestResponseBody struct {
 	CodPessoa   *int     `json:"CodPessoa omitempty"`   // Código de pessoa do proprietário.
 	Competencia *string  `json:"Competencia omitempty"` // Competência do saldo.
-	Valor       *float64 `json:"Valor omitempty"`       // Valor do saldo.
+	Valor       *types.Float64 `json:"Valor omitempty"`       // Valor do saldo.
 	DataSaldo   *string  `json:"DataSaldo omitempty"`   // Se tem valor então informa a data em que o saldo foi calculado.
 }
 

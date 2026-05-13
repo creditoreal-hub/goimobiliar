@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_RELATORIO_DEMONSTRATIVO_PROPRIETARIO"
@@ -170,7 +171,7 @@ type RequestResponseBodyProprietario struct {
 	CodPessoaBenef                      *int                                                     `json:"CodPessoaBenef,omitempty"`                      // Código de pessoa do beneficiário.
 	NomeBenef                           *string                                                  `json:"NomeBenef,omitempty"`                           // Nome do beneficiário.
 	LancamentosProprietario             *[]RequestResponseBodyProprietarioLancamentoProprietario `json:"LancamentosProprietario,omitempty"`             // Lançamentos do proprietário.
-	ValorLiquidoLancamentosProprietario *float64                                                 `json:"ValorLiquidoLancamentosProprietario,omitempty"` // Valor liquido dos lançamentos do proprietário.
+	ValorLiquidoLancamentosProprietario *types.Float64                                                 `json:"ValorLiquidoLancamentosProprietario,omitempty"` // Valor liquido dos lançamentos do proprietário.
 	Imoveis                             *[]RequestResponseBodyProprietarioLancamentoProprietario `json:"Imoveis,omitempty"`                             // Informações de cada imóvel.
 	ResumoTaxas                         *[]RequestResponseBodyProprietarioResumoTaxa             `json:"ResumoTaxas,omitempty"`                         // Resumo de valores por taxa.
 	ResumoGeral                         *RequestResponseBodyProprietarioResumoGeral              `json:"ResumoGeral,omitempty"`                         // Resumo geral de valores.
@@ -181,8 +182,8 @@ type RequestResponseBodyProprietarioLancamentoProprietario struct {
 	Data         *string  `json:"Data,omitempty"`         // Data do lançamento.
 	Competencia  *string  `json:"Competencia,omitempty"`  // Competência do demonstrativo.
 	Historico    *string  `json:"Historico,omitempty"`    // Histórico do lançamento.
-	ValorDebito  *float64 `json:"ValorDebito,omitempty"`  // Valor de débito do lançamento.
-	ValorCredito *float64 `json:"ValorCredito,omitempty"` // Valor de crébito do lançamento.
+	ValorDebito  *types.Float64 `json:"ValorDebito,omitempty"`  // Valor de débito do lançamento.
+	ValorCredito *types.Float64 `json:"ValorCredito,omitempty"` // Valor de crébito do lançamento.
 	NumeroLancto *int     `json:"NumeroLancto,omitempty"` // Número do lançamento.
 }
 
@@ -192,7 +193,7 @@ type RequestResponseBodyProprietarioImovel struct {
 	Observacao                    *string                                                  `json:"Observacao,omitempty"`                    // Observações referente ao imóvel.
 	Locatarios                    *[]RequestResponseBodyProprietarioImovelLocatario        `json:"Locatarios,omitempty"`                    // Locatários do imóvel.
 	LancamentosImovel             *[]RequestResponseBodyProprietarioImovelLancamentoImovel `json:"LancamentosImovel,omitempty"`             // Lançamentos do imóvel.
-	ValorLiquidoLancamentosImovel *float64                                                 `json:"ValorLiquidoLancamentosImovel,omitempty"` // Valor liquido dos lançamentos do imóvel.
+	ValorLiquidoLancamentosImovel *types.Float64                                                 `json:"ValorLiquidoLancamentosImovel,omitempty"` // Valor liquido dos lançamentos do imóvel.
 }
 
 type RequestResponseBodyProprietarioImovelLocatario struct {
@@ -212,33 +213,33 @@ type RequestResponseBodyProprietarioImovelLancamentoImovel struct {
 	Data         *string  `json:"Data,omitempty"`         // Data do lançamento.
 	Competencia  *string  `json:"Competencia,omitempty"`  // Competência do demonstrativo.
 	Historico    *string  `json:"Historico,omitempty"`    // Histórico do lançamento.
-	ValorDebito  *float64 `json:"ValorDebito,omitempty"`  // Valor de débito do lançamento.
-	ValorCredito *float64 `json:"ValorCredito,omitempty"` // Valor de crébito do lançamento.
+	ValorDebito  *types.Float64 `json:"ValorDebito,omitempty"`  // Valor de débito do lançamento.
+	ValorCredito *types.Float64 `json:"ValorCredito,omitempty"` // Valor de crébito do lançamento.
 	NumeroLancto *int     `json:"NumeroLancto,omitempty"` // Número do lançamento.
 }
 
 type RequestResponseBodyProprietarioResumoTaxa struct {
 	Historico    *string  `json:"Historico,omitempty"`    // Histórico do lançamento.
-	ValorDebito  *float64 `json:"ValorDebito,omitempty"`  // Valor de débito do lançamento.
-	ValorCredito *float64 `json:"ValorCredito,omitempty"` // Valor de crébito do lançamento.
+	ValorDebito  *types.Float64 `json:"ValorDebito,omitempty"`  // Valor de débito do lançamento.
+	ValorCredito *types.Float64 `json:"ValorCredito,omitempty"` // Valor de crébito do lançamento.
 }
 
 type RequestResponseBodyProprietarioResumoGeral struct {
-	TotalTaxasCredito    *float64 `json:"TotalTaxasCredito,omitempty"`    // Total das taxas de crédito.
-	TotalTaxasDebito     *float64 `json:"TotalTaxasDebito,omitempty"`     // Total das taxas de débito.
-	TotalTaxasLiquido    *float64 `json:"TotalTaxasLiquido,omitempty"`    // Total líquido das taxas.
-	SaldoAnteriorCredito *float64 `json:"SaldoAnteriorCredito,omitempty"` // Valor de crédito no saldo anterior.
-	SaldoAnteriorDebito  *float64 `json:"SaldoAnteriorDebito,omitempty"`  // Valor de débito no saldo anterior.
-	SaldoAnteriorLiquido *float64 `json:"SaldoAnteriorLiquido,omitempty"` // Valor líquido do saldo anterior.
-	SaldoFinal           *float64 `json:"SaldoFinal,omitempty"`           // Saldo final líquido.
-	ValorImpostos        *float64 `json:"ValorImpostos,omitempty"`        // Valor dos impostos.
+	TotalTaxasCredito    *types.Float64 `json:"TotalTaxasCredito,omitempty"`    // Total das taxas de crédito.
+	TotalTaxasDebito     *types.Float64 `json:"TotalTaxasDebito,omitempty"`     // Total das taxas de débito.
+	TotalTaxasLiquido    *types.Float64 `json:"TotalTaxasLiquido,omitempty"`    // Total líquido das taxas.
+	SaldoAnteriorCredito *types.Float64 `json:"SaldoAnteriorCredito,omitempty"` // Valor de crédito no saldo anterior.
+	SaldoAnteriorDebito  *types.Float64 `json:"SaldoAnteriorDebito,omitempty"`  // Valor de débito no saldo anterior.
+	SaldoAnteriorLiquido *types.Float64 `json:"SaldoAnteriorLiquido,omitempty"` // Valor líquido do saldo anterior.
+	SaldoFinal           *types.Float64 `json:"SaldoFinal,omitempty"`           // Saldo final líquido.
+	ValorImpostos        *types.Float64 `json:"ValorImpostos,omitempty"`        // Valor dos impostos.
 }
 
 type RequestResponseBodyProprietarioPagamento struct {
 	Data     *string  `json:"Data,omitempty"`     // Data do lançamento.
-	Valor    *float64 `json:"Valor,omitempty"`    // Valor pago ao proprietário.
+	Valor    *types.Float64 `json:"Valor,omitempty"`    // Valor pago ao proprietário.
 	Situacao *string  `json:"Situacao,omitempty"` // Situação do pagamento.
-	Saldo    *float64 `json:"Saldo,omitempty"`    // Saldo do proprietário.
+	Saldo    *types.Float64 `json:"Saldo,omitempty"`    // Saldo do proprietário.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

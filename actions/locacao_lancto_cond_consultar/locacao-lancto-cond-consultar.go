@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_LANCTO_COND_CONSULTAR"
@@ -167,7 +168,7 @@ type RequestResponseBody struct {
 	CodFornecedor              *int                        `json:"CodFornecedor,omitempty"`              // Código do fornecedor do lançamento.
 	DataPagamento              *string                     `json:"DataPagamento,omitempty"`              // Data de pagamento do lançamento (quando quitado).
 	QuitouBoletoCondominio     *string                     `json:"QuitouBoletoCondominio,omitempty"`     // quitar/quitou o DOC de condomínio de um imóvel, mesma funcionalidade do checkbox 'Baixa manual do doc de condomínio' da tela.
-	ValorTarifaDOC             *float64                    `json:"ValorTarifaDOC,omitempty"`             // Valor da tarifa DOC, caso não seja o valor default do sistema.
+	ValorTarifaDOC             *types.Float64                    `json:"ValorTarifaDOC,omitempty"`             // Valor da tarifa DOC, caso não seja o valor default do sistema.
 	Lista                      *[]RequestResponseBodyLista `json:"Lista,omitempty"`                      //
 	DocExportado               *string                     `json:"DocExportado,omitempty"`               // Indica se já foi exportado o boleto/DOC deste lançamento.
 	ExportaLocacao             *string                     `json:"ExportaLocacao,omitempty"`             // Indica se exporta para locação.
@@ -185,9 +186,9 @@ type RequestResponseBodyLista struct {
 	PrevisaoReal                *string  `json:"PrevisaoReal,omitempty"`                // Indicação de lançamento previsto ou real.
 	DcBoletoLocatario           *string  `json:"DcBoletoLocatario,omitempty"`           // Débito ou crédito no boleto do locatário.
 	DcReciboProprietario        *string  `json:"DcReciboProprietario,omitempty"`        // Débito ou crédito no recibo de proprietário.
-	ValorPrevisao               *float64 `json:"ValorPrevisao,omitempty"`               // Valor de previsão.
-	ValorReal                   *float64 `json:"ValorReal,omitempty"`                   // Valor real.
-	ValorDiferenca              *float64 `json:"ValorDiferenca,omitempty"`              // Valor de diferença entre Previsão/Real.
+	ValorPrevisao               *types.Float64 `json:"ValorPrevisao,omitempty"`               // Valor de previsão.
+	ValorReal                   *types.Float64 `json:"ValorReal,omitempty"`                   // Valor real.
+	ValorDiferenca              *types.Float64 `json:"ValorDiferenca,omitempty"`              // Valor de diferença entre Previsão/Real.
 	NumeroLanctoItem            *int     `json:"NumeroLanctoItem,omitempty"`            // Número do lançamento.
 	NoDemonstrativo             *string  `json:"NoDemonstrativo,omitempty"`             // Indica a forma de lançamento no demonstrativo.
 }

@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CADASTRO_TAXA_PESQUISAR"
@@ -157,7 +158,7 @@ type RequestResponseBody struct {
 type RequestResponseBodyTaxa struct {
 	CodTaxa   *int     `json:"CodTaxa,omitempty"`   // Código da taxa.
 	Descricao *string  `json:"Descricao,omitempty"` // Descrição da taxa.
-	Aliquota  *float64 `json:"Aliquota,omitempty"`  // Alíquota de ISS referente à cidade/UF informada.
+	Aliquota  *types.Float64 `json:"Aliquota,omitempty"`  // Alíquota de ISS referente à cidade/UF informada.
 	Categoria *string  `json:"Categoria,omitempty"` // Categoria da taxa.
 	Operacao  *string  `json:"Operacao,omitempty"`  // Indica se a taxa é crédito ou débito.
 }

@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_SEGURO_INCLUIR"
@@ -24,15 +25,15 @@ type ActionInput struct {
 	TipoSeguro             *string             `json:"TipoSeguro,omitempty"`             // *Tipo do seguro contratado (Fiança, Incêndio, etc.).
 	CodSeguradora          *int                `json:"CodSeguradora,omitempty"`          // *Código interno da seguradora no Imibiliar.
 	CodCorretor            *int                `json:"CodCorretor,omitempty"`            // Código interno da empresa corretora do seguro no Imobiliar.
-	ValorSegurado          *float64            `json:"ValorSegurado,omitempty"`          // *Valor segurado contratado.
-	ValorPremioTotal       *float64            `json:"ValorPremioTotal,omitempty"`       // *Valor total do prêmio a ser pago à seguradora.
+	ValorSegurado          *types.Float64            `json:"ValorSegurado,omitempty"`          // *Valor segurado contratado.
+	ValorPremioTotal       *types.Float64            `json:"ValorPremioTotal,omitempty"`       // *Valor total do prêmio a ser pago à seguradora.
 	LancarContasPagar      *string             `json:"LancarContasPagar,omitempty"`      // *Este campo indica se deve fazer a incluisão das parcelas no Contas à Pagar.
 	CompetenciaInicial     *string             `json:"CompetenciaInicial,omitempty"`     // Competência inicial da cobrança das parcelas.
 	DataVencimentoInicial  *string             `json:"DataVencimentoInicial,omitempty"`  // Data de vencimento da primeira parcela.
 	NumeroParcelaResidual  *int                `json:"NumeroParcelaResidual,omitempty"`  // Número da parcela a aplicar o valor residual (informar 1).
-	ValorParcela           *float64            `json:"ValorParcela,omitempty"`           // Valor da parcela.
+	ValorParcela           *types.Float64            `json:"ValorParcela,omitempty"`           // Valor da parcela.
 	NumeroParcelas         *int                `json:"NumeroParcelas,omitempty"`         // Número de parcelas.
-	ValorParcelasRestantes *float64            `json:"ValorParcelasRestantes,omitempty"` //
+	ValorParcelasRestantes *types.Float64            `json:"ValorParcelasRestantes,omitempty"` //
 	Lista                  *[]ActionInputLista `json:"Lista,omitempty"`                  // *Lista de parcelas de valores prédefinidos.
 }
 

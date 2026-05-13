@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CONDOM_LISTA_ECONOMIAS"
@@ -169,8 +170,8 @@ type RequestResponseBodyBloco struct {
 	NomeSindico   *string                             `json:"NomeSindico"`         // Nome do síndico.
 	EmailSindico  *string                             `json:"EmailSindico"`        // E-mail do síndico.
 	CPFSindico    *string                             `json:"CPFSindico"`          // CPF do síndico.
-	ValorGas      *float64                            `json:"ValorGas"`            // Valor de consumo de gas.
-	ValorAgua     *float64                            `json:"ValorAgua"`           // Valor de consumo de água.
+	ValorGas      *types.Float64                            `json:"ValorGas"`            // Valor de consumo de gas.
+	ValorAgua     *types.Float64                            `json:"ValorAgua"`           // Valor de consumo de água.
 	Economias     *[]RequestResponseBodyBlocoEconomia `json:"Economias,omitempty"` //
 	Conselho      *[]RequestResponseBodyBlocoConselho `json:"Conselho,omitempty"`  //
 }
@@ -181,7 +182,7 @@ type RequestResponseBodyBlocoEconomia struct {
 	CodPessoaCondomino *int                                        `json:"CodPessoaCondomino,omitempty"` // Código de pessoa do condômino desta economia/unidade.
 	Nome               *string                                     `json:"Nome,omitempty"`               // Nome do condômino.
 	Celular            *string                                     `json:"Celular,omitempty"`            // Número de celular do condomino.
-	Fracao             *float64                                    `json:"Fracao,omitempty"`             // Fracao da economia/unidade.
+	Fracao             *types.Float64                                    `json:"Fracao,omitempty"`             // Fracao da economia/unidade.
 	Email              *string                                     `json:"Email,omitempty"`              // E-mail do condômino.
 	Locatario          *string                                     `json:"Locatario,omitempty"`          // Nome do locatário.
 	Contato            *string                                     `json:"Contato,omitempty"`            // Informações de contato.

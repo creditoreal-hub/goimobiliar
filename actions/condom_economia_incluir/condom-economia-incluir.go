@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CONDOM_ECONOMIA_INCLUIR"
@@ -21,7 +22,7 @@ type ActionInput struct {
 	CodClasseImovel                *int     `json:"CodClasseImovel,omitempty"`                // Código da classe de imóvel.
 	CodPessoaCondomino             *int     `json:"CodPessoaCondomino,omitempty"`             // Código de pessoa do condômino desta economia/unidade.
 	QtdeDormitorios                *int     `json:"QtdeDormitorios,omitempty"`                // Quantidade de dormitórios.
-	Fracao                         *float64 `json:"Fracao,omitempty"`                         // Fracao da economia/unidade.
+	Fracao                         *types.Float64 `json:"Fracao,omitempty"`                         // Fracao da economia/unidade.
 	CodPessoaLocat                 *int     `json:"CodPessoaLocat,omitempty"`                 // Código de pessoa do locatário desta economia/unidade.
 	CodPessoaDebContaCondomino     *int     `json:"CodPessoaDebContaCondomino,omitempty"`     // Código de pessoa do condômino para débito em conta.
 	CodPessoaDebContaLocat         *int     `json:"CodPessoaDebContaLocat,omitempty"`         // Código de pessoa do locatário para débito em conta.
@@ -29,7 +30,7 @@ type ActionInput struct {
 	ExportaLocacao                 *string  `json:"ExportaLocacao,omitempty"`                 // Indica se exporta para locação.
 	EmiteEtiqueta                  *string  `json:"EmiteEtiqueta,omitempty"`                  // Indica se emite etiqueta.
 	TarifaBoleto                   *string  `json:"TarifaBoleto,omitempty"`                   // Indica se o boleto tem tarifa.
-	ValorTarifaBoleto              *float64 `json:"ValorTarifaBoleto,omitempty"`              // Valor fixado da tarifa.
+	ValorTarifaBoleto              *types.Float64 `json:"ValorTarifaBoleto,omitempty"`              // Valor fixado da tarifa.
 	CodFornecedorAdministradoraLoc *int     `json:"CodFornecedorAdministradoraLoc,omitempty"` // Código de fornecedor da administradora da locação.
 	CodImovelNaAdministradoraLoc   *int     `json:"CodImovelNaAdministradoraLoc,omitempty"`   // Código do imóvel na locação desta administradora.
 	CodCompensacaoIntegrada        *string  `json:"CodCompensacaoIntegrada,omitempty"`        // Código do imóvel para compensação integrada com outra administradora da locação.

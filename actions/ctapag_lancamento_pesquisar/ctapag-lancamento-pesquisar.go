@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CTAPAG_LANCAMENTO_PESQUISAR"
@@ -34,9 +35,9 @@ type ActionInput struct {
 	PrevisaoReal          *string  `json:"PrevisaoReal,omitempty"`          // Indica o tipo dos lançamentos a serem pesquisados. Valor default é 'T'.
 	NumeroDocumento       *string  `json:"NumeroDocumento,omitempty"`       // Número do documento do fornecedor.
 	UsuarioInclusao       *string  `json:"UsuarioInclusao,omitempty"`       // Usuário que incluiu o lançamento.
-	ValorLiquido          *float64 `json:"ValorLiquido,omitempty"`          // Valor líquido do lançamento. Valor default é '0'.
-	ValorBruto            *float64 `json:"ValorBruto,omitempty"`            // Valor bruto do lançamento. Valor default é '0'.
-	ValorPagamento        *float64 `json:"ValorPagamento,omitempty"`        // Valor do pagamento. Valor default é '0'.
+	ValorLiquido          *types.Float64 `json:"ValorLiquido,omitempty"`          // Valor líquido do lançamento. Valor default é '0'.
+	ValorBruto            *types.Float64 `json:"ValorBruto,omitempty"`            // Valor bruto do lançamento. Valor default é '0'.
+	ValorPagamento        *types.Float64 `json:"ValorPagamento,omitempty"`        // Valor do pagamento. Valor default é '0'.
 	QtdeLinhas            *int     `json:"QtdeLinhas,omitempty"`            // Quantidade máxima de linhas de resposta, utilizado para obter resultados por segmentos (paginação). Se não for informado então a resposta conterá todas as linhas selecionadas pela ação. Valor default é '0'.
 	ProximasLinhas        *string  `json:"ProximasLinhas,omitempty"`        // Campo opcional indicando que, ao invés de executar a ação, solicita as linhas do próximo segmento. Valor default é 'N'.
 }
@@ -176,7 +177,7 @@ type RequestResponseBodyLancamento struct {
 	CodTaxa          *int     `json:"CodTaxa,omitempty"`          // Código da taxa que classifica este lançamento.
 	DescrTaxa        *string  `json:"DescrTaxa,omitempty"`        // Descrição da taxa que classifica este lançamento.
 	NomeFavorecido   *string  `json:"NomeFavorecido,omitempty"`   // Nome do favorecido.
-	ValorLiquido     *float64 `json:"ValorLiquido,omitempty"`     // Valor líquido do lançamento.
+	ValorLiquido     *types.Float64 `json:"ValorLiquido,omitempty"`     // Valor líquido do lançamento.
 	PrevisaoReal     *string  `json:"PrevisaoReal,omitempty"`     // Indica o tipo dos lançamentos a serem pesquisados.
 	Frequencia       *string  `json:"Frequencia,omitempty"`       // Define se lançamento é único ou permanente.
 	Pago             *string  `json:"Pago,omitempty"`             // Indica se o lançamento está pago.
@@ -184,7 +185,7 @@ type RequestResponseBodyLancamento struct {
 	UsuarioSuspensao *string  `json:"UsuarioSuspensao,omitempty"` // Usuário que suspendeu o lançamento.
 	DataSuspensao    *string  `json:"DataSuspensao,omitempty"`    // Data da suspensão do lançamento.
 	MotivoSuspensao  *string  `json:"MotivoSuspensao,omitempty"`  // Motivo da suspensão do lançamento.
-	ValorPagamento   *float64 `json:"ValorPagamento,omitempty"`   // Valor do pagamento.
+	ValorPagamento   *types.Float64 `json:"ValorPagamento,omitempty"`   // Valor do pagamento.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

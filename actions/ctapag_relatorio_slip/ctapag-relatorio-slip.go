@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CTAPAG_RELATORIO_SLIP"
@@ -162,21 +163,21 @@ type RequestResponseBodyOrigem struct {
 	CodConta     *int     `json:"CodConta,omitempty"`     // Código da conta recebida.
 	NomeConta    *string  `json:"NomeConta,omitempty"`    // Nome da conta recebida.
 	Historico    *string  `json:"Historico,omitempty"`    // Histórico da conta recebida.
-	ValorDebito  *float64 `json:"ValorDebito,omitempty"`  // Valor de débito.
-	ValorCredito *float64 `json:"ValorCredito,omitempty"` // Valor de crédito.
+	ValorDebito  *types.Float64 `json:"ValorDebito,omitempty"`  // Valor de débito.
+	ValorCredito *types.Float64 `json:"ValorCredito,omitempty"` // Valor de crédito.
 }
 
 type RequestResponseBodyDestino struct {
 	CodConta     *int     `json:"CodConta,omitempty"`     // Código da conta recebida.
 	NomeConta    *string  `json:"NomeConta,omitempty"`    // Nome da conta recebida.
 	Historico    *string  `json:"Historico,omitempty"`    // Histórico da conta recebida.
-	ValorDebito  *float64 `json:"ValorDebito,omitempty"`  // Valor de débito.
-	ValorCredito *float64 `json:"ValorCredito,omitempty"` // Valor de crédito.
+	ValorDebito  *types.Float64 `json:"ValorDebito,omitempty"`  // Valor de débito.
+	ValorCredito *types.Float64 `json:"ValorCredito,omitempty"` // Valor de crédito.
 }
 
 type RequestResponseBodyTotais struct {
-	TotalCreditos *float64 `json:"TotalCreditos,omitempty"` // Total de créditos.
-	TotalDebitos  *float64 `json:"TotalDebitos,omitempty"`  // Total de débitos.
+	TotalCreditos *types.Float64 `json:"TotalCreditos,omitempty"` // Total de créditos.
+	TotalDebitos  *types.Float64 `json:"TotalDebitos,omitempty"`  // Total de débitos.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

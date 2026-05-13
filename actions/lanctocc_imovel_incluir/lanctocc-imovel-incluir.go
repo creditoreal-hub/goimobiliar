@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LANCTOCC_IMOVEL_INCLUIR"
@@ -44,7 +45,7 @@ type ActionInput struct {
 	NumeroParcela         *int     `json:"NumeroParcela,omitempty"`         // Número da parcela do lançamento. Valor default é '1'.
 	TotalParcelas         *int     `json:"TotalParcelas,omitempty"`         // Quantidade total de parcelas. Valor default é '1'.
 	CodTaxa               *int     `json:"CodTaxa,omitempty"`               // *Código da taxa que classifica este lançamento.
-	Valor                 *float64 `json:"Valor,omitempty"`                 // *Valor total do lançamento.
+	Valor                 *types.Float64 `json:"Valor,omitempty"`                 // *Valor total do lançamento.
 }
 
 type RunMultiInput consts.RunMultiInput[*ActionInput]

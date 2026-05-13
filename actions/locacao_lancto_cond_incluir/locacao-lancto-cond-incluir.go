@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_LANCTO_COND_INCLUIR"
@@ -28,7 +29,7 @@ type ActionInput struct {
 	CobrarLocatarioProprietario *string  `json:"CobrarLocatarioProprietario,omitempty"` // *Cobrar do Locatario ou proprietario.
 	TotalParcelas               *int     `json:"TotalParcelas,omitempty"`               // *Quantidade total de parcelas.
 	NumeroParcela               *int     `json:"NumeroParcela,omitempty"`               // *Número da parcela do lançamento.
-	ValorReal                   *float64 `json:"ValorReal,omitempty"`                   // *Valor real.
+	ValorReal                   *types.Float64 `json:"ValorReal,omitempty"`                   // *Valor real.
 	DataVencimento              *string  `json:"DataVencimento,omitempty"`              // *Data de vencimento do lançamento.
 	DataVigInicial              *string  `json:"DataVigInicial,omitempty"`              // Data inicial da vigência do contrato.
 	CodBarras                   *string  `json:"CodBarras,omitempty"`                   // Código de barras do boleto.

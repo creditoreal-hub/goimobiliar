@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_CONTRATO_ADM_CONSULTAR"
@@ -193,7 +194,7 @@ type RequestResponseBodyImovel struct {
 type RequestResponseBodyParticipacao struct {
 	CodImovel *int     `json:"CodImovel"` // Código do imóvel.
 	CodPessoa *int     `json:"CodPessoa"` // Código de pessoa do proprietário.
-	PercRenda *float64 `json:"PercRenda"` // Percentual de renda que esta pessoa possui neste imóvel (máximo de 100%).
+	PercRenda *types.Float64 `json:"PercRenda"` // Percentual de renda que esta pessoa possui neste imóvel (máximo de 100%).
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

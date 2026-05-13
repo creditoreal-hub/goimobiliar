@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CONDOM_LANCAMENTO_CONSULTAR"
@@ -155,7 +156,7 @@ type RequestResponseBody struct {
 	DataVencimentoExtra *string  `json:"DataVencimentoExtra,omitempty"` // Data de vencimento se tipo do documento for extra (TipoDocumento='E').
 	Competencia         *string  `json:"Competencia,omitempty"`         // Competência para a qual o lançamento será lançado.
 	CompetenciaReajuste *string  `json:"CompetenciaReajuste,omitempty"` // Competência do reajuste do lançamento.
-	PercentualReajuste  *float64 `json:"PercentualReajuste,omitempty"`  // Percentual de reajuste do lançamento.
+	PercentualReajuste  *types.Float64 `json:"PercentualReajuste,omitempty"`  // Percentual de reajuste do lançamento.
 	NumeroParcela       *int     `json:"NumeroParcela,omitempty"`       // Número da parcela.
 	TotalParcelas       *int     `json:"TotalParcelas,omitempty"`       // Número total de parcelas.
 	DocAtrasado         *string  `json:"DocAtrasado,omitempty"`         // Indica se o DOC/boleto é atrasado.
@@ -166,7 +167,7 @@ type RequestResponseBody struct {
 	DocExportado        *string  `json:"DocExportado,omitempty"`        // Indica se o boleto/DOC já foi exportado.
 	IdEconomia          *int     `json:"IdEconomia,omitempty"`          // Chave principal da economia/unidade.
 	TipoDocumento       *string  `json:"TipoDocumento,omitempty"`       // Tipo de boleto/DOC.
-	Valor               *float64 `json:"Valor,omitempty"`               // Valor do lançamento.
+	Valor               *types.Float64 `json:"Valor,omitempty"`               // Valor do lançamento.
 	DebitoCredito       *string  `json:"DebitoCredito,omitempty"`       // Indica se o lançamento é de crédito ou de débito.
 	DebitarLocatario    *string  `json:"DebitarLocatario,omitempty"`    // Indica se é para debitar o locatário.
 }

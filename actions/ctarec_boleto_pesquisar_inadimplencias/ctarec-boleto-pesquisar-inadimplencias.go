@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CTAREC_BOLETO_PESQUISAR_INADIMPLENCIAS"
@@ -51,13 +52,13 @@ type ActionInput struct {
 	ApenasProgramados        *string  `json:"ApenasProgramados,omitempty"`        //
 	ApenasCondominioAtivo    *string  `json:"ApenasCondominioAtivo,omitempty"`    //
 	ApenasCondominioInativo  *string  `json:"ApenasCondominioInativo,omitempty"`  //
-	PercentualHonorarios     *float64 `json:"PercentualHonorarios,omitempty"`     // *
+	PercentualHonorarios     *types.Float64 `json:"PercentualHonorarios,omitempty"`     // *
 	TemCustas                *string  `json:"TemCustas,omitempty"`                //
 	CodBloco                 *string  `json:"CodBloco,omitempty"`                 // Código do bloco da economia.
 	CodAdvogado              *int     `json:"CodAdvogado,omitempty"`              // Código do Advogado.
 	Ocupados                 *string  `json:"Ocupados,omitempty"`                 //
 	Boletos                  *string  `json:"Boletos,omitempty"`                  //
-	VlrHonorarios            *float64 `json:"VlrHonorarios,omitempty"`            //
+	VlrHonorarios            *types.Float64 `json:"VlrHonorarios,omitempty"`            //
 	CodAssessor              *int     `json:"CodAssessor,omitempty"`              //
 	ExibirParcelamentoAcordo *string  `json:"ExibirParcelamentoAcordo,omitempty"` //
 	ApenasComAdv             *string  `json:"ApenasComAdv,omitempty"`             //
@@ -229,9 +230,9 @@ type RequestResponseBodyPendente struct {
 	DataGeracao             *string  `json:"DataGeracao,omitempty"`             // Data geração.
 	BaseJuro                *string  `json:"BaseJuro,omitempty"`                // Tipo de cobrança de juros.
 	CodFilial               *string  `json:"CodFilial,omitempty"`               //
-	PercJuros               *float64 `json:"PercJuros,omitempty"`               // Percentual de juros em caso de atraso de pagamento.
-	PercMulta               *float64 `json:"PercMulta,omitempty"`               // Percentual de multa.
-	VlrTaxaPorte            *float64 `json:"VlrTaxaPorte,omitempty"`            // 	Valor da taxa porte.
+	PercJuros               *types.Float64 `json:"PercJuros,omitempty"`               // Percentual de juros em caso de atraso de pagamento.
+	PercMulta               *types.Float64 `json:"PercMulta,omitempty"`               // Percentual de multa.
+	VlrTaxaPorte            *types.Float64 `json:"VlrTaxaPorte,omitempty"`            // 	Valor da taxa porte.
 	MsgCalcCorrecao         *string  `json:"MsgCalcCorrecao,omitempty"`         //
 	CodCondominio           *int     `json:"CodCondominio,omitempty"`           // Código do condomínio.
 	UsuarioId               *string  `json:"UsuarioId,omitempty"`               // Usuário que registrou observação.
@@ -243,9 +244,9 @@ type RequestResponseBodyPendente struct {
 	ExportaLocacao          *string  `json:"ExportaLocacao,omitempty"`          // Indica se exporta para locação.
 	DescrClasseImovel       *string  `json:"DescrClasseImovel,omitempty"`       // Descrição da classe de imóvel da economia/unidade.
 	NomeCondominio          *string  `json:"NomeCondominio,omitempty"`          // Nome do condomínio.
-	ValorJuros              *float64 `json:"ValorJuros,omitempty"`              // Valor dos juros.
-	Correcao                *float64 `json:"Correcao,omitempty"`                // Correção monetária sobre valor original.
-	VlrDocumento            *float64 `json:"VlrDocumento,omitempty"`            // Valor do documento.
+	ValorJuros              *types.Float64 `json:"ValorJuros,omitempty"`              // Valor dos juros.
+	Correcao                *types.Float64 `json:"Correcao,omitempty"`                // Correção monetária sobre valor original.
+	VlrDocumento            *types.Float64 `json:"VlrDocumento,omitempty"`            // Valor do documento.
 	Sexo                    *string  `json:"Sexo,omitempty"`                    // Sexo/gênero da pessoa.
 	DataVencFianca          *string  `json:"DataVencFianca,omitempty"`          // Data de vencimento do seguro fiança.
 	DataVigInicial          *string  `json:"DataVigInicial,omitempty"`          // Data inicial da vigência do contrato.
@@ -256,10 +257,10 @@ type RequestResponseBodyPendente struct {
 	DiaPagtoProp            *int     `json:"DiaPagtoProp,omitempty"`            // Dia do mês para o pagamento ao proprietário quando a forma de cálculo for 'Programado'.
 	CodTaxa                 *int     `json:"CodTaxa,omitempty"`                 // Código da taxa que classifica este lançamento.
 	DescricaoTaxa           *string  `json:"DescricaoTaxa,omitempty"`           // Descricao da Taxa.
-	VlrLancamento           *float64 `json:"VlrLancamento,omitempty"`           // Valor original do Lançamento Analítico.
-	JurosLancamento         *float64 `json:"JurosLancamento,omitempty"`         // Valor dos juros do Lançamento Analítico.
-	MultaLancamento         *float64 `json:"MultaLancamento,omitempty"`         // Valor da Multa do Lançamento Analítico.
-	CorrecaoLancamento      *float64 `json:"CorrecaoLancamento,omitempty"`      // Correção monetária sobre valor original do Lançamento Analítico.
+	VlrLancamento           *types.Float64 `json:"VlrLancamento,omitempty"`           // Valor original do Lançamento Analítico.
+	JurosLancamento         *types.Float64 `json:"JurosLancamento,omitempty"`         // Valor dos juros do Lançamento Analítico.
+	MultaLancamento         *types.Float64 `json:"MultaLancamento,omitempty"`         // Valor da Multa do Lançamento Analítico.
+	CorrecaoLancamento      *types.Float64 `json:"CorrecaoLancamento,omitempty"`      // Correção monetária sobre valor original do Lançamento Analítico.
 	AdvogadoBoleto          *string  `json:"AdvogadoBoleto,omitempty"`          // Nome do Advogado no Boleto.
 }
 

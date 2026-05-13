@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CTAREC_RELATORIO_SLIP"
@@ -160,13 +161,13 @@ type RequestResponseBodyConta struct {
 	CodConta     *int     `json:"CodConta,omitempty"`     // Number	Código da conta recebida.
 	NomeConta    *string  `json:"NomeConta,omitempty"`    // String	Nome da conta recebida.
 	Historico    *string  `json:"Historico,omitempty"`    // String	Histórico da conta recebida.
-	ValorDebito  *float64 `json:"ValorDebito,omitempty"`  // Float	Valor de débito.
-	ValorCredito *float64 `json:"ValorCredito,omitempty"` // Float	Valor de crédito.
+	ValorDebito  *types.Float64 `json:"ValorDebito,omitempty"`  // Float	Valor de débito.
+	ValorCredito *types.Float64 `json:"ValorCredito,omitempty"` // Float	Valor de crédito.
 }
 
 type RequestResponseBodyTotais struct {
-	TotalCreditos *float64 `json:"TotalCreditos,omitempty"` // Total de créditos.
-	TotalDebitos  *float64 `json:"TotalDebitos,omitempty"`  // Total de débitos.
+	TotalCreditos *types.Float64 `json:"TotalCreditos,omitempty"` // Total de créditos.
+	TotalDebitos  *types.Float64 `json:"TotalDebitos,omitempty"`  // Total de débitos.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

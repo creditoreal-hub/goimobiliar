@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CONDOM_LISTA_INADIMPLENCIAS"
@@ -163,14 +164,14 @@ type RequestResponseBodyInadimplente struct {
 	NossoNumero          *string                                              `json:"NossoNumero,omitempty"`       //	String(13)	Número de identificação bancário.
 	TipoDOC              *string                                              `json:"TipoDOC,omitempty"`           //	String(1)	Tipo de boleto/DOC.
 	Competencia          *string                                              `json:"Competencia,omitempty"`       //	String(7)	Competência do documento sem quitação.
-	VlrDocumento         *float64                                             `json:"VlrDocumento,omitempty"`      //	Number(12,2)	Valor do documento.
-	VlrCorrigido         *float64                                             `json:"VlrCorrigido,omitempty"`      //	Number(12,2)	Valor corrigido.
-	Multa                *float64                                             `json:"Multa,omitempty"`             //	Number(12,2)	Multa sobre valor original.
-	Juros                *float64                                             `json:"Juros,omitempty"`             //	Number(12,2)	Juros sobre valor original.
-	Correcao             *float64                                             `json:"Correcao,omitempty"`          //	Number(12,2)	Correção monetária sobre valor original.
-	VlrHonorarios        *float64                                             `json:"VlrHonorarios,omitempty"`     //	Number(12,2)	Valor dos honorários jurídicos.
-	VlrCustas            *float64                                             `json:"VlrCustas,omitempty"`         //	Number(12,2)	Valor das custas jurídicas.
-	VlrTotal             *float64                                             `json:"VlrTotal,omitempty"`          //	Number(12,2)	Valor total com honorários e custas.
+	VlrDocumento         *types.Float64                                             `json:"VlrDocumento,omitempty"`      //	Number(12,2)	Valor do documento.
+	VlrCorrigido         *types.Float64                                             `json:"VlrCorrigido,omitempty"`      //	Number(12,2)	Valor corrigido.
+	Multa                *types.Float64                                             `json:"Multa,omitempty"`             //	Number(12,2)	Multa sobre valor original.
+	Juros                *types.Float64                                             `json:"Juros,omitempty"`             //	Number(12,2)	Juros sobre valor original.
+	Correcao             *types.Float64                                             `json:"Correcao,omitempty"`          //	Number(12,2)	Correção monetária sobre valor original.
+	VlrHonorarios        *types.Float64                                             `json:"VlrHonorarios,omitempty"`     //	Number(12,2)	Valor dos honorários jurídicos.
+	VlrCustas            *types.Float64                                             `json:"VlrCustas,omitempty"`         //	Number(12,2)	Valor das custas jurídicas.
+	VlrTotal             *types.Float64                                             `json:"VlrTotal,omitempty"`          //	Number(12,2)	Valor total com honorários e custas.
 	ObsJurNomeAdv        *string                                              `json:"ObsJur_NomeAdv,omitempty"`    //	String	Nome do advogado responsável pelas observações jurídicas.
 	ObservacoesJuridicas *[]RequestResponseBodyInadimplenteObservacaoJuridica //
 }

@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CONDOM_LANCAMENTO_INCLUIR"
@@ -19,12 +20,12 @@ type ActionInput struct {
 	CodBloco            *string                `json:"CodBloco,omitempty"`            // Código do bloco do condomínio.
 	CodBlocoBase        *string                `json:"CodBlocoBase,omitempty"`        // Bloco base/principal do condomínio.
 	Competencia         *string                `json:"Competencia,omitempty"`         // *Competência para a qual o lançamento será lançado.
-	Valor               *float64               `json:"Valor,omitempty"`               // *Valor do lançamento.
+	Valor               *types.Float64               `json:"Valor,omitempty"`               // *Valor do lançamento.
 	Complemento         *string                `json:"Complemento,omitempty"`         // *Complemento descritivo do lançamento.
 	CodTaxa             *int                   `json:"CodTaxa,omitempty"`             // *Código da taxa que classifica este lançamento.
 	Origem              *string                `json:"Origem,omitempty"`              // Origem do lançamento. Valor default é 'M'.
 	CompetenciaReajuste *string                `json:"CompetenciaReajuste,omitempty"` // Competência do reajuste do lançamento.
-	PercentualReajuste  *float64               `json:"PercentualReajuste,omitempty"`  // Percentual de reajuste do lançamento. Valor default é '0'.
+	PercentualReajuste  *types.Float64               `json:"PercentualReajuste,omitempty"`  // Percentual de reajuste do lançamento. Valor default é '0'.
 	DebitoCredito       *string                `json:"DebitoCredito,omitempty"`       // Indica se o lançamento é de crédito ou de débito. Valor default é 'D'.
 	TipoLancamento      *string                `json:"TipoLancamento,omitempty"`      // Tipo de lançamento. Valor default é 'I'.
 	NumeroParcela       *int                   `json:"NumeroParcela,omitempty"`       // *Número da parcela.

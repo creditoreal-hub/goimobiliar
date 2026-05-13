@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_LANCTO_AUTOMATICO_PESQUISAR"
@@ -152,7 +153,7 @@ type RequestResponseBody struct {
 type RequestResponseBodyLista struct {
 	CodTaxa              *int     `json:"CodTaxa,omitempty"`              // Código da taxa.
 	DescrTaxa            *string  `json:"DescrTaxa,omitempty"`            // Descrição da taxa que classifica este lançamento.
-	Valor                *float64 `json:"Valor,omitempty"`                // Valor do lançamento.
+	Valor                *types.Float64 `json:"Valor,omitempty"`                // Valor do lançamento.
 	TipoCobranca         *string  `json:"TipoCobranca,omitempty"`         // Tipo de cobrança.
 	DescrTipoCobranca    *string  `json:"DescrTipoCobranca,omitempty"`    // Descrição do tipo de cobrança.
 	TipoCompetencia      *string  `json:"TipoCompetencia,omitempty"`      // Tipo de lançamento.

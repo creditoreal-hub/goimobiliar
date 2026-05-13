@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CTAREC_BOLETO_CALCULAR_ACRESC_DESC"
@@ -146,20 +147,20 @@ type RequestResponseHeader struct {
 }
 
 type RequestResponseBody struct {
-	VlrDocumento     *float64 `json:"VlrDocumento,omitempty"`     // Valor do documento sem o seguro conteúdo, multa e juros.
-	VlrDocumentoOrig *float64 `json:"VlrDocumentoOrig,omitempty"` // Valor original do documento.
-	Juros            *float64 `json:"Juros,omitempty"`            // Valor de juros do documento.
-	Multa            *float64 `json:"Multa,omitempty"`            // Valor de multa do documento.
-	VlrCorrecao      *float64 `json:"VlrCorrecao,omitempty"`      // Valor de correçao do documento.
-	MultaProp        *float64 `json:"MultaProp,omitempty"`        // Valor de multa do proprietário.
-	VlrCorrecaoProp  *float64 `json:"VlrCorrecaoProp,omitempty"`  // Valor de correçao do proprietário.
-	DescontoProp     *float64 `json:"DescontoProp,omitempty"`     // Valor de desconto do proprietário.
-	DescontoAdm      *float64 `json:"DescontoAdm,omitempty"`      // Valor de desconto da administradora.
-	VlrCorrigido     *float64 `json:"VlrCorrigido,omitempty"`     // Valor corrigido do documento.
+	VlrDocumento     *types.Float64 `json:"VlrDocumento,omitempty"`     // Valor do documento sem o seguro conteúdo, multa e juros.
+	VlrDocumentoOrig *types.Float64 `json:"VlrDocumentoOrig,omitempty"` // Valor original do documento.
+	Juros            *types.Float64 `json:"Juros,omitempty"`            // Valor de juros do documento.
+	Multa            *types.Float64 `json:"Multa,omitempty"`            // Valor de multa do documento.
+	VlrCorrecao      *types.Float64 `json:"VlrCorrecao,omitempty"`      // Valor de correçao do documento.
+	MultaProp        *types.Float64 `json:"MultaProp,omitempty"`        // Valor de multa do proprietário.
+	VlrCorrecaoProp  *types.Float64 `json:"VlrCorrecaoProp,omitempty"`  // Valor de correçao do proprietário.
+	DescontoProp     *types.Float64 `json:"DescontoProp,omitempty"`     // Valor de desconto do proprietário.
+	DescontoAdm      *types.Float64 `json:"DescontoAdm,omitempty"`      // Valor de desconto da administradora.
+	VlrCorrigido     *types.Float64 `json:"VlrCorrigido,omitempty"`     // Valor corrigido do documento.
 	NossoNumero      *string  `json:"NossoNumero,omitempty"`      // Número de identificação bancário.
 	DocCapaId        *int     `json:"DocCapaId,omitempty"`        // Código do boleto no sistema.
 	OrigemCobranca   *string  `json:"OrigemCobranca,omitempty"`   // Locação/Condominio.
-	VlrSegCont       *float64 `json:"VlrSegCont,omitempty"`       // Valor do seguro conteúdo.
+	VlrSegCont       *types.Float64 `json:"VlrSegCont,omitempty"`       // Valor do seguro conteúdo.
 	ErroIndice       *string  `json:"ErroIndice,omitempty"`       // Mensagem de erro.
 }
 

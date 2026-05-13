@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_LANCTO_AUTOMATICO_ADICIONAR_ALTERAR"
@@ -18,7 +19,7 @@ type ActionInput struct {
 	CodImovel          *int     `json:"CodImovel,omitempty"`          // *Código do imóvel.
 	CodContratoLoc     *int     `json:"CodContratoLoc,omitempty"`     // *Código do contrato de locação deste imóvel.
 	CodTaxa            *int     `json:"CodTaxa,omitempty"`            // *Código da taxa.
-	Valor              *float64 `json:"Valor,omitempty"`              // *Valor do lançamento.
+	Valor              *types.Float64 `json:"Valor,omitempty"`              // *Valor do lançamento.
 	TipoCompetencia    *string  `json:"TipoCompetencia,omitempty"`    // *Tipo de lançamento.
 	TipoCobranca       *string  `json:"TipoCobranca,omitempty"`       // *Tipo de cobrança.
 	CompetenciaInicial *string  `json:"CompetenciaInicial,omitempty"` // Competência inicial de vigência.

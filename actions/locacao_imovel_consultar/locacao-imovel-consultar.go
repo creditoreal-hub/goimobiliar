@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_IMOVEL_CONSULTAR"
@@ -163,8 +164,8 @@ type RequestResponseBody struct {
 	Ativo                        *string                              `json:"Ativo,omitempty"`                        // Indica se está ativo.
 	QtdeDormitorios              *int                                 `json:"QtdeDormitorios,omitempty"`              // Quantidade de dormitórios.
 	QtdeGaragem                  *int                                 `json:"QtdeGaragem,omitempty"`                  // Quantidade de vagas de garagem.
-	AreaTotal                    *float64                             `json:"AreaTotal,omitempty"`                    // Área total do imóvel.
-	AreaPrivativa                *float64                             `json:"AreaPrivativa,omitempty"`                // Área privativa do imóvel.
+	AreaTotal                    *types.Float64                             `json:"AreaTotal,omitempty"`                    // Área total do imóvel.
+	AreaPrivativa                *types.Float64                             `json:"AreaPrivativa,omitempty"`                // Área privativa do imóvel.
 	Venda                        *string                              `json:"Venda,omitempty"`                        // Indica se o imóvel é para oferta de venda.
 	Locacao                      *string                              `json:"Locacao,omitempty"`                      // Indica se o imóvel é para oferta de locação.
 	CodContratoAdm               *int                                 `json:"CodContratoAdm,omitempty"`               // Código do contrato de administração deste imóvel.
@@ -175,11 +176,11 @@ type RequestResponseBody struct {
 	CodAssessor                  *int                                 `json:"CodAssessor,omitempty"`                  // Código do assessor/gestor.
 	Matricula                    *string                              `json:"Matricula,omitempty"`                    // Matrícula do imóvel.
 	ZonaRegistro                 *string                              `json:"ZonaRegistro,omitempty"`                 // Zona do Cartório de Registro do imóvel.
-	ValorVenda                   *float64                             `json:"ValorVenda,omitempty"`                   // Valor de venda do imóvel.
+	ValorVenda                   *types.Float64                             `json:"ValorVenda,omitempty"`                   // Valor de venda do imóvel.
 	NomePredio                   *string                              `json:"NomePredio,omitempty"`                   // Nome do prédio do imóvel.
-	Latitude                     *float64                             `json:"Latitude,omitempty"`                     // Latitude do imóvel em graus e decimais do grau.
-	Longitude                    *float64                             `json:"Longitude,omitempty"`                    // Longitude do imóvel em graus e decimais do grau.
-	ValorAluguel                 *float64                             `json:"ValorAluguel,omitempty"`                 // Valor de aluguel do imóvel.
+	Latitude                     *types.Float64                             `json:"Latitude,omitempty"`                     // Latitude do imóvel em graus e decimais do grau.
+	Longitude                    *types.Float64                             `json:"Longitude,omitempty"`                    // Longitude do imóvel em graus e decimais do grau.
+	ValorAluguel                 *types.Float64                             `json:"ValorAluguel,omitempty"`                 // Valor de aluguel do imóvel.
 	ContratoLocAtivo             *string                              `json:"ContratoLocAtivo,omitempty"`             // Indica se o contrato de locação está ativo.
 	Imediacao                    *string                              `json:"Imediacao,omitempty"`                    // Descrição das imediações do imóvel.
 	DescrCaracteristicas         *string                              `json:"DescrCaracteristicas,omitempty"`         // Descrição das características do imóvel.
@@ -197,20 +198,20 @@ type RequestResponseBody struct {
 	ObsInternet                  *string                              `json:"ObsInternet,omitempty"`                  // Observações que devem ser enviadas para o site na internet.
 	CodPessoaLocat               *int                                 `json:"CodPessoaLocat,omitempty"`               // Código de pessoa do locatário principal.
 	NomeLocat                    *string                              `json:"NomeLocat,omitempty"`                    // Nome do locatário.
-	ValorCondominio              *float64                             `json:"ValorCondominio,omitempty"`              // Valor mensal do condomínio do imóvel.
-	ValorIPTU                    *float64                             `json:"ValorIPTU,omitempty"`                    // Valor mensal de IPTU do imóvel.
+	ValorCondominio              *types.Float64                             `json:"ValorCondominio,omitempty"`              // Valor mensal do condomínio do imóvel.
+	ValorIPTU                    *types.Float64                             `json:"ValorIPTU,omitempty"`                    // Valor mensal de IPTU do imóvel.
 	NroInscricaoIPTU             *int                                 `json:"NroInscricaoIPTU,omitempty"`             // Número de inscrição do IPTU.
 	InformativoDOC               *string                              `json:"InformativoDOC,omitempty"`               // Texto que deve constar na área do informativo do DOC.
 	InstrucaoDOC                 *string                              `json:"InstrucaoDOC,omitempty"`                 // Texto que deve constar na área de instruções do DOC.
 	IncideIRFTxAdm               *string                              `json:"IncideIRFTxAdm,omitempty"`               // Indica se incide imposto de renda sobre a taxa de administração.
 	DescPontualidade             *string                              `json:"DescPontualidade,omitempty"`             // Indica se tem desconto de pontualidade quando pago antes do vencimento.
 	FormaCalcPagto               *string                              `json:"FormaCalcPagto,omitempty"`               // Indica a forma de cálculo para o pagamento ao proprietário.
-	TaxaIntermediacao            *float64                             `json:"TaxaIntermediacao,omitempty"`            // Percentual da taxa de intermediação.
+	TaxaIntermediacao            *types.Float64                             `json:"TaxaIntermediacao,omitempty"`            // Percentual da taxa de intermediação.
 	IncidenciaTaxaAdm            *string                              `json:"IncidenciaTaxaAdm,omitempty"`            // Incidência da taxa de administração.
-	TaxaAdm                      *float64                             `json:"TaxaAdm,omitempty"`                      // Taxa de administração do imóvel em forma de um percentual sobre o aluguel. Se for um valor fixo em Reais então informá-lo no campo 'ValorTaxaAdm' mas apenas um deles deve ser informado.
-	ValorTaxaAdm                 *float64                             `json:"ValorTaxaAdm,omitempty"`                 // Taxa de administração do imóvel em forma de um valor fixo em Reais. Se for um percentual sobre o aluguel então informá-lo no campo 'TaxaAdm' mas apenas um deles deve ser informado.
+	TaxaAdm                      *types.Float64                             `json:"TaxaAdm,omitempty"`                      // Taxa de administração do imóvel em forma de um percentual sobre o aluguel. Se for um valor fixo em Reais então informá-lo no campo 'ValorTaxaAdm' mas apenas um deles deve ser informado.
+	ValorTaxaAdm                 *types.Float64                             `json:"ValorTaxaAdm,omitempty"`                 // Taxa de administração do imóvel em forma de um valor fixo em Reais. Se for um percentual sobre o aluguel então informá-lo no campo 'TaxaAdm' mas apenas um deles deve ser informado.
 	IncidenciaValorMinimoTaxaAdm *string                              `json:"IncidenciaValorMinimoTaxaAdm,omitempty"` // Indicação de cláusula de valor mínimo de taxa de administração.
-	ValorMinimoTaxaAdm           *float64                             `json:"ValorMinimoTaxaAdm,omitempty"`           // Valor mínimo de taxa de administração quando indicado 'Cláusula de valor mínimo de taxa de administração' (IncideValorMinimoTaxaAdm).
+	ValorMinimoTaxaAdm           *types.Float64                             `json:"ValorMinimoTaxaAdm,omitempty"`           // Valor mínimo de taxa de administração quando indicado 'Cláusula de valor mínimo de taxa de administração' (IncideValorMinimoTaxaAdm).
 	CobrancaAntecipada           *string                              `json:"CobrancaAntecipada,omitempty"`           // Indica se tem desconto de pontualidade quando pago antes do vencimento.
 	RamalAgua                    *string                              `json:"RamalAgua,omitempty"`                    // Identificação do ramal/registro de água.
 	CodAgencia                   *int                                 `json:"CodAgencia,omitempty"`                   // Código da agência/loja de captação do imóvel.
@@ -234,7 +235,7 @@ type RequestResponseBody struct {
 type RequestResponseBodyCaracteristica struct {
 	CodCaract   *int     `json:"CodCaract,omitempty"`   // Código da característica do imóvel.
 	Descricao   *string  `json:"Descricao,omitempty"`   // Descrição da característica do imóvel.
-	Quantidade  *float64 `json:"Quantidade,omitempty"`  // Quantidade desta característica do imóvel.
+	Quantidade  *types.Float64 `json:"Quantidade,omitempty"`  // Quantidade desta característica do imóvel.
 	Complemento *string  `json:"Complemento,omitempty"` // Complemento desta característica do imóvel.
 }
 

@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "LOCACAO_RELATORIO_MENSAL"
@@ -175,73 +176,73 @@ type RequestResponseBodyTipoImovel struct {
 type RequestResponseBodyTipoImovelImovel struct {
 	Classe    *string  `json:"Classe,omitempty"`    // Classe do imóvel.
 	QtdClasse *int     `json:"QtdClasse,omitempty"` // Quantidade de imóveis desta classe.
-	VlrClasse *float64 `json:"VlrClasse,omitempty"` // Valor total de aluguéis desta classe.
+	VlrClasse *types.Float64 `json:"VlrClasse,omitempty"` // Valor total de aluguéis desta classe.
 }
 
 type RequestResponseBodyTaxaBoleto struct {
 	CodTaxa *int     `json:"CodTaxa,omitempty"` // Codigo da taxa.
 	Taxa    *string  `json:"Taxa,omitempty"`    // Descrição da taxa.
-	Debito  *float64 `json:"Debito,omitempty"`  // Valor de débito.
-	Credito *float64 `json:"Credito,omitempty"` // Valor de crédito.
-	Total   *float64 `json:"Total,omitempty"`   // Valor total.
+	Debito  *types.Float64 `json:"Debito,omitempty"`  // Valor de débito.
+	Credito *types.Float64 `json:"Credito,omitempty"` // Valor de crédito.
+	Total   *types.Float64 `json:"Total,omitempty"`   // Valor total.
 }
 
 type RequestResponseBodyTotaisTaxas struct {
-	Debito  *float64 `json:"Debito,omitempty"`  // Valor de débito.
-	Credito *float64 `json:"Credito,omitempty"` // Valor de crédito.
-	Total   *float64 `json:"Total,omitempty"`   // Valor total.
+	Debito  *types.Float64 `json:"Debito,omitempty"`  // Valor de débito.
+	Credito *types.Float64 `json:"Credito,omitempty"` // Valor de crédito.
+	Total   *types.Float64 `json:"Total,omitempty"`   // Valor total.
 }
 
 type RequestResponseBodyDadosBoletos struct {
-	TaxaPorte           *float64 `json:"TaxaPorte,omitempty"`           // Valor de taxa porte.
-	DescAdministradora  *float64 `json:"DescAdministradora,omitempty"`  // Valor de desconto da administradora.
-	MultaAdministradora *float64 `json:"MultaAdministradora,omitempty"` // Valor de multa da administradora.
-	JurosAdministradora *float64 `json:"JurosAdministradora,omitempty"` // Valor de juros da administradora.
-	OutrosAcrescimos    *float64 `json:"OutrosAcrescimos,omitempty"`    // Valor de outros acréscimos.
-	TarifaDoc           *float64 `json:"TarifaDoc,omitempty"`           // Valor de emissão do boleto (tarifa DOC).
-	DescProprietario    *float64 `json:"DescProprietario,omitempty"`    // Valor de desconto do proprietário.
-	MultaProprietario   *float64 `json:"MultaProprietario,omitempty"`   // Valor de multa do proprietário.
-	JurosProprietario   *float64 `json:"JurosProprietario,omitempty"`   // Valor de juros do proprietário.
+	TaxaPorte           *types.Float64 `json:"TaxaPorte,omitempty"`           // Valor de taxa porte.
+	DescAdministradora  *types.Float64 `json:"DescAdministradora,omitempty"`  // Valor de desconto da administradora.
+	MultaAdministradora *types.Float64 `json:"MultaAdministradora,omitempty"` // Valor de multa da administradora.
+	JurosAdministradora *types.Float64 `json:"JurosAdministradora,omitempty"` // Valor de juros da administradora.
+	OutrosAcrescimos    *types.Float64 `json:"OutrosAcrescimos,omitempty"`    // Valor de outros acréscimos.
+	TarifaDoc           *types.Float64 `json:"TarifaDoc,omitempty"`           // Valor de emissão do boleto (tarifa DOC).
+	DescProprietario    *types.Float64 `json:"DescProprietario,omitempty"`    // Valor de desconto do proprietário.
+	MultaProprietario   *types.Float64 `json:"MultaProprietario,omitempty"`   // Valor de multa do proprietário.
+	JurosProprietario   *types.Float64 `json:"JurosProprietario,omitempty"`   // Valor de juros do proprietário.
 }
 
 type RequestResponseBodyQuadroBoletos struct {
-	VlrBoletosEmitidos            *float64 `json:"VlrBoletosEmitidos,omitempty"`            // Valor total de boletos emitidos.
+	VlrBoletosEmitidos            *types.Float64 `json:"VlrBoletosEmitidos,omitempty"`            // Valor total de boletos emitidos.
 	QtdBoletosEmitidos            *int     `json:"QtdBoletosEmitidos,omitempty"`            // Quantidade de boletos emitidos.
-	VlrBoletosPagosMesAtual       *float64 `json:"VlrBoletosPagosMesAtual,omitempty"`       // Valor total de boletos pagos do mês.
+	VlrBoletosPagosMesAtual       *types.Float64 `json:"VlrBoletosPagosMesAtual,omitempty"`       // Valor total de boletos pagos do mês.
 	QtdBoletosPagosMesAtual       *int     `json:"QtdBoletosPagosMesAtual,omitempty"`       // Quantidade de boletos pagos do mês.
-	VlrBoletosPagosMesAnt         *float64 `json:"VlrBoletosPagosMesAnt,omitempty"`         // Valor total de boletos pagos meses anteriores.
+	VlrBoletosPagosMesAnt         *types.Float64 `json:"VlrBoletosPagosMesAnt,omitempty"`         // Valor total de boletos pagos meses anteriores.
 	QtdBoletosPagosMesAnt         *int     `json:"QtdBoletosPagosMesAnt,omitempty"`         // Quantidade de boletos pagos meses anteriores.
-	VlrBoletosPagosMesFuturo      *float64 `json:"VlrBoletosPagosMesFuturo,omitempty"`      // Valor total de boletos pagos meses futuros.
+	VlrBoletosPagosMesFuturo      *types.Float64 `json:"VlrBoletosPagosMesFuturo,omitempty"`      // Valor total de boletos pagos meses futuros.
 	QtdBoletosPagosMesFuturo      *int     `json:"QtdBoletosPagosMesFuturo,omitempty"`      // Quantidade de boletos pagos meses futuros.
-	VlrBoletosNaoPagosCompetAtual *float64 `json:"VlrBoletosNaoPagosCompetAtual,omitempty"` // Valor total de boletos não quitados na competência.
+	VlrBoletosNaoPagosCompetAtual *types.Float64 `json:"VlrBoletosNaoPagosCompetAtual,omitempty"` // Valor total de boletos não quitados na competência.
 	QtdBoletosNaoPagosCompetAtual *int     `json:"QtdBoletosNaoPagosCompetAtual,omitempty"` // Quantidade de boletos não quitados na competência.
-	VlrBoletosNaoPagosCompetAnt   *float64 `json:"VlrBoletosNaoPagosCompetAnt,omitempty"`   // Valor total de boletos não quitados em competências anteriores.
+	VlrBoletosNaoPagosCompetAnt   *types.Float64 `json:"VlrBoletosNaoPagosCompetAnt,omitempty"`   // Valor total de boletos não quitados em competências anteriores.
 	QtdBoletosNaoPagosCompetAnt   *int     `json:"QtdBoletosNaoPagosCompetAnt,omitempty"`   // Quantidade de boletos não quitados em competências anteriores.
 }
 
 type RequestResponseBodyInadimplencias struct {
-	VlrInadimplencias *float64 `json:"VlrInadimplencias,omitempty"` // Valor total de boletos de aluguéis atrasados.
+	VlrInadimplencias *types.Float64 `json:"VlrInadimplencias,omitempty"` // Valor total de boletos de aluguéis atrasados.
 	QtdInadimplencias *int     `json:"QtdInadimplencias,omitempty"` // Quantidade de boletos de aluguéis atrasados.
 }
 
 type RequestResponseBodyTaxasAdministracao struct {
-	VlrPrevisaoBoletosMes     *float64 `json:"VlrPrevisaoBoletosMes,omitempty"`     // Valor da previsão de taxa de administração dos boletos gerados do mês.
-	VlrEfetivoBoletosMes      *float64 `json:"VlrEfetivoBoletosMes,omitempty"`      // Valor total da taxa de administração efetiva dos boletos do mês.
-	VlrTotalRecebidoMes       *float64 `json:"VlrTotalRecebidoMes,omitempty"`       // Valor total da taxa de administração recebida no mês.
-	VlrRecebidoMesSemGarantia *float64 `json:"VlrRecebidoMesSemGarantia,omitempty"` // Valor da taxa de administração recebida no mês - sem garantia.
-	VlrGarantidoMes           *float64 `json:"VlrGarantidoMes,omitempty"`           // Valor da taxa de administração garantida no mês.
-	VlrGarantidoRecebidoMes   *float64 `json:"VlrGarantidoRecebidoMes,omitempty"`   // Valor da taxa de administração garantida e recebida no mesmo mês.
-	VlrGarantidoOutroMes      *float64 `json:"VlrGarantidoOutroMes,omitempty"`      // Valor da taxa de administração de doc garantido em outro mês e quitado neste.
-	VlrDemonstrativoProp      *float64 `json:"VlrDemonstrativoProp,omitempty"`      // Valor da taxa de admnistração dentro dos demonstrativos de proprietários.
-	VlrIntermediacaoMes       *float64 `json:"VlrIntermediacaoMes,omitempty"`       // Valor total da taxa de intermediação efetiva no mês.
+	VlrPrevisaoBoletosMes     *types.Float64 `json:"VlrPrevisaoBoletosMes,omitempty"`     // Valor da previsão de taxa de administração dos boletos gerados do mês.
+	VlrEfetivoBoletosMes      *types.Float64 `json:"VlrEfetivoBoletosMes,omitempty"`      // Valor total da taxa de administração efetiva dos boletos do mês.
+	VlrTotalRecebidoMes       *types.Float64 `json:"VlrTotalRecebidoMes,omitempty"`       // Valor total da taxa de administração recebida no mês.
+	VlrRecebidoMesSemGarantia *types.Float64 `json:"VlrRecebidoMesSemGarantia,omitempty"` // Valor da taxa de administração recebida no mês - sem garantia.
+	VlrGarantidoMes           *types.Float64 `json:"VlrGarantidoMes,omitempty"`           // Valor da taxa de administração garantida no mês.
+	VlrGarantidoRecebidoMes   *types.Float64 `json:"VlrGarantidoRecebidoMes,omitempty"`   // Valor da taxa de administração garantida e recebida no mesmo mês.
+	VlrGarantidoOutroMes      *types.Float64 `json:"VlrGarantidoOutroMes,omitempty"`      // Valor da taxa de administração de doc garantido em outro mês e quitado neste.
+	VlrDemonstrativoProp      *types.Float64 `json:"VlrDemonstrativoProp,omitempty"`      // Valor da taxa de admnistração dentro dos demonstrativos de proprietários.
+	VlrIntermediacaoMes       *types.Float64 `json:"VlrIntermediacaoMes,omitempty"`       // Valor total da taxa de intermediação efetiva no mês.
 }
 
 type RequestResponseBodyQuadroPagtoProprietarios struct {
-	VlrGerado        *float64 `json:"VlrGerado,omitempty"`        // Valor total de gerações no mês.
+	VlrGerado        *types.Float64 `json:"VlrGerado,omitempty"`        // Valor total de gerações no mês.
 	QtdGerado        *int     `json:"QtdGerado,omitempty"`        // Quantidade de gerações no mês.
-	VlrPago          *float64 `json:"VlrPago,omitempty"`          // Valor total de gerações pagas.
+	VlrPago          *types.Float64 `json:"VlrPago,omitempty"`          // Valor total de gerações pagas.
 	QtdPago          *int     `json:"QtdPago,omitempty"`          // Quantidade de gerações pagas.
-	VlrTarifaRemessa *float64 `json:"VlrTarifaRemessa,omitempty"` // Valor total de tarifa remessa.
+	VlrTarifaRemessa *types.Float64 `json:"VlrTarifaRemessa,omitempty"` // Valor total de tarifa remessa.
 	QtdTarifaRemessa *int     `json:"QtdTarifaRemessa,omitempty"` // Quantidade de tarifa remessa.
 }
 
@@ -268,11 +269,11 @@ type RequestResponseBodySituacaoImoveis struct {
 
 type RequestResponseBodyTotaisLocacao struct {
 	QtdTotalImoveis         *int     `json:"QtdTotalImoveis,omitempty"`         // Quantidade total de imóveis.
-	VlrAlugueisResidenciais *float64 `json:"VlrAlugueisResidenciais,omitempty"` // Valor total de aluguel para imóveis residenciais.
+	VlrAlugueisResidenciais *types.Float64 `json:"VlrAlugueisResidenciais,omitempty"` // Valor total de aluguel para imóveis residenciais.
 	QtdAlugueisResidenciais *int     `json:"QtdAlugueisResidenciais,omitempty"` // Quantidade de imóveis com aluguel residencial.
-	VlrAlugueisComerciais   *float64 `json:"VlrAlugueisComerciais,omitempty"`   // Valor total de aluguel para imóveis comerciais.
+	VlrAlugueisComerciais   *types.Float64 `json:"VlrAlugueisComerciais,omitempty"`   // Valor total de aluguel para imóveis comerciais.
 	QtdAlugueisComerciais   *int     `json:"QtdAlugueisComerciais,omitempty"`   // Quantidade de imóveis com aluguel comercial.
-	VlrAlugueis             *float64 `json:"VlrAlugueis,omitempty"`             // Valor total de aluguéis.
+	VlrAlugueis             *types.Float64 `json:"VlrAlugueis,omitempty"`             // Valor total de aluguéis.
 }
 
 type RequestResponseBodyTipoBoletos struct {
@@ -290,20 +291,20 @@ type RequestResponseBodyTipoBoletosBanco struct {
 type RequestResponseBodyTipoBoletosBancoBoleto struct {
 	Data      *string  `json:"Data,omitempty"`      // Data.
 	QtdTotal  *int     `json:"QtdTotal,omitempty"`  // Quantidade de boletos emitidos.
-	VlrTotal  *float64 `json:"VlrTotal,omitempty"`  // Valor total de boletos emitidos.
+	VlrTotal  *types.Float64 `json:"VlrTotal,omitempty"`  // Valor total de boletos emitidos.
 	QtdNormal *int     `json:"QtdNormal,omitempty"` // Quantidade de boletos normais/extras.
-	VlrNormal *float64 `json:"VlrNormal,omitempty"` // Valor dos boletos normais/extras.
+	VlrNormal *types.Float64 `json:"VlrNormal,omitempty"` // Valor dos boletos normais/extras.
 	QtdRetido *int     `json:"QtdRetido,omitempty"` // Quantidades de boletos rettidos.
-	VlrRetido *float64 `json:"VlrRetido,omitempty"` // Valor dos boletos retidos.
+	VlrRetido *types.Float64 `json:"VlrRetido,omitempty"` // Valor dos boletos retidos.
 }
 
 type RequestResponseBodyTipoBoletosBancoTotaisBanco struct {
 	QtdTotal  *int     `json:"QtdTotal,omitempty"`  // Quantidade de boletos emitidos.
-	VlrTotal  *float64 `json:"VlrTotal,omitempty"`  // Valor total de boletos emitidos.
+	VlrTotal  *types.Float64 `json:"VlrTotal,omitempty"`  // Valor total de boletos emitidos.
 	QtdNormal *int     `json:"QtdNormal,omitempty"` // Quantidade de boletos normais/extras.
-	VlrNormal *float64 `json:"VlrNormal,omitempty"` // Valor dos boletos normais/extras.
+	VlrNormal *types.Float64 `json:"VlrNormal,omitempty"` // Valor dos boletos normais/extras.
 	QtdRetido *int     `json:"QtdRetido,omitempty"` // Quantidades de boletos rettidos.
-	VlrRetido *float64 `json:"VlrRetido,omitempty"` // Valor dos boletos retidos.
+	VlrRetido *types.Float64 `json:"VlrRetido,omitempty"` // Valor dos boletos retidos.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {
