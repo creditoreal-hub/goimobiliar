@@ -146,7 +146,7 @@ type RequestResponseHeader struct {
 
 type RequestResponseBody struct {
 	NumeroLancto  *int                          `json:"NumeroLancto,omitempty"`  // Número do lançamento.
-	TotalArquivos *string                       `json:"TotalArquivos,omitempty"` // Total de arquivos encontrados na consulta.
+	TotalArquivos *int                          `json:"TotalArquivos,omitempty"` // Total de arquivos encontrados na consulta.
 	Arquivos      *[]RequestResponseBodyArquivo `json:"Arquivos,omitempty"`      //
 }
 
