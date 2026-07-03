@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CADASTRO_LOJA_CONSULTAR"
@@ -144,24 +145,24 @@ type RequestResponseHeader struct {
 }
 
 type RequestResponseBody struct {
-	IdLoja             *int    `json:"IdLoja,omitempty"`             // Identificação da loja/agência.
-	CodFilial          *int    `json:"CodFilial,omitempty"`          // Código da filial.
-	FilialNome         *string `json:"FilialNome,omitempty"`         // Nome da filial.
-	Cnpj               *int    `json:"Cnpj,omitempty"`               // Cnpj da filial.
-	CodFornecedor      *int    `json:"CodFornecedor,omitempty"`      // Código de fornecedor desta filial.
-	InscricaoMunicipal *int    `json:"InscricaoMunicipal,omitempty"` // Inscricao municipal da filial.
-	CEP                *int    `json:"CEP,omitempty"`                // Número do CEP.
-	TipoLograd         *string `json:"TipoLograd,omitempty"`         // Tipo de logradouro abreviado ou por extenso ('R' ou 'RUA', 'AV' ou 'AVENIDA', etc.).
-	Logradouro         *string `json:"Logradouro,omitempty"`         // Logradouro do endereço. Deve ser informado apenas o nome sem o tipo de logradouro.
-	Numero             *int    `json:"Numero,omitempty"`             // Número do endereço.
-	Complemento        *string `json:"Complemento,omitempty"`        // Complemento do endereço.
-	Bairro             *string `json:"Bairro,omitempty"`             // Bairro do endereço.
-	Cidade             *string `json:"Cidade,omitempty"`             // Cidade da filial.
-	UF                 *string `json:"UF,omitempty"`                 // UF da filial.
-	Telefone           *string `json:"Telefone,omitempty"`           // Telefone da loja/agência.
-	EmailLocacao       *string `json:"EmailLocacao,omitempty"`       // Emailde locacao da loja/agência.
-	EmailCondominio    *string `json:"EmailCondominio,omitempty"`    // Email de condomínio da loja/agência.
-	Franquia           *string `json:"Franquia,omitempty"`           // Indica se é uma franquia.
+	IdLoja             *int           `json:"IdLoja,omitempty"`             // Identificação da loja/agência.
+	CodFilial          *int           `json:"CodFilial,omitempty"`          // Código da filial.
+	FilialNome         *string        `json:"FilialNome,omitempty"`         // Nome da filial.
+	Cnpj               *types.CpfCnpj `json:"Cnpj,omitempty"`               // Cnpj da filial.
+	CodFornecedor      *int           `json:"CodFornecedor,omitempty"`      // Código de fornecedor desta filial.
+	InscricaoMunicipal *int           `json:"InscricaoMunicipal,omitempty"` // Inscricao municipal da filial.
+	CEP                *int           `json:"CEP,omitempty"`                // Número do CEP.
+	TipoLograd         *string        `json:"TipoLograd,omitempty"`         // Tipo de logradouro abreviado ou por extenso ('R' ou 'RUA', 'AV' ou 'AVENIDA', etc.).
+	Logradouro         *string        `json:"Logradouro,omitempty"`         // Logradouro do endereço. Deve ser informado apenas o nome sem o tipo de logradouro.
+	Numero             *int           `json:"Numero,omitempty"`             // Número do endereço.
+	Complemento        *string        `json:"Complemento,omitempty"`        // Complemento do endereço.
+	Bairro             *string        `json:"Bairro,omitempty"`             // Bairro do endereço.
+	Cidade             *string        `json:"Cidade,omitempty"`             // Cidade da filial.
+	UF                 *string        `json:"UF,omitempty"`                 // UF da filial.
+	Telefone           *string        `json:"Telefone,omitempty"`           // Telefone da loja/agência.
+	EmailLocacao       *string        `json:"EmailLocacao,omitempty"`       // Emailde locacao da loja/agência.
+	EmailCondominio    *string        `json:"EmailCondominio,omitempty"`    // Email de condomínio da loja/agência.
+	Franquia           *string        `json:"Franquia,omitempty"`           // Indica se é uma franquia.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

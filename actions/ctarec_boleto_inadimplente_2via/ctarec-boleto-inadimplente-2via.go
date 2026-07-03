@@ -16,12 +16,12 @@ import (
 var ACTION = "CTAREC_BOLETO_INADIMPLENTE_2VIA"
 
 type ActionInput struct {
-	NossoNumero          *string  `json:"NossoNumero,omitempty"`          // *Número de identificação bancário.
-	DataLimitePagamento  *string  `json:"DataLimitePagamento,omitempty"`  // *Data limite de pagamento do documento.
+	NossoNumero          *string        `json:"NossoNumero,omitempty"`          // *Número de identificação bancário.
+	DataLimitePagamento  *string        `json:"DataLimitePagamento,omitempty"`  // *Data limite de pagamento do documento.
 	NroDiasIniVencto     *types.Float64 `json:"NroDiasIniVencto,omitempty"`     //
 	NroDiasFimVencto     *types.Float64 `json:"NroDiasFimVencto,omitempty"`     //
-	Email                *string  `json:"Email,omitempty"`                // E-mail da pessoa.
-	InibirCobrRegistrada *string  `json:"InibirCobrRegistrada,omitempty"` // Valor default é 'N'.
+	Email                *string        `json:"Email,omitempty"`                // E-mail da pessoa.
+	InibirCobrRegistrada *string        `json:"InibirCobrRegistrada,omitempty"` // Valor default é 'N'.
 }
 
 type RunMultiInput consts.RunMultiInput[*ActionInput]
@@ -158,12 +158,12 @@ type RequestResponseBody struct {
 	DataVencAcordo          *string                           `json:"DataVencAcordo,omitempty"`          // Data de vencimento do acordo.
 	FilialNome              *string                           `json:"FilialNome,omitempty"`              // Nome da filial.
 	FilialEnd               *string                           `json:"FilialEnd,omitempty"`               // Endereço da filial.
-	FilialCnpj              *int                              `json:"FilialCnpj,omitempty"`              // Cnpj da filial.
+	FilialCnpj              *types.CpfCnpj                    `json:"FilialCnpj,omitempty"`              // Cnpj da filial.
 	DataVenc                *string                           `json:"DataVenc,omitempty"`                // Data de vencimento do boleto.
 	FilialCidade            *string                           `json:"FilialCidade,omitempty"`            // Cidade da filial.
 	IdCodBanco              *string                           `json:"IdCodBanco,omitempty"`              // Código do banco com dígito verificador.
 	LinhaDigitavel          *string                           `json:"LinhaDigitavel,omitempty"`          // Linha digitável do boleto.
-	VlrDocumento            *types.Float64                          `json:"VlrDocumento,omitempty"`            // Valor do documento.
+	VlrDocumento            *types.Float64                    `json:"VlrDocumento,omitempty"`            // Valor do documento.
 	NossoNumeroOrig         *string                           `json:"NossoNumeroOrig,omitempty"`         // Nosso Numero original.
 	LocalPagamento          *string                           `json:"LocalPagamento,omitempty"`          // Local de pagamento.
 	NomeCedente             *string                           `json:"NomeCedente,omitempty"`             // Nome do cedente.
@@ -177,11 +177,11 @@ type RequestResponseBody struct {
 	Aceite                  *string                           `json:"Aceite,omitempty"`                  // Aceite do documento.
 	UsoBanco                *string                           `json:"UsoBanco,omitempty"`                // Informações de uso do banco.
 	Moeda                   *string                           `json:"Moeda,omitempty"`                   // Moeda do documento.
-	VlrAcrescOutr           *types.Float64                          `json:"VlrAcrescOutr,omitempty"`           // Valor de outros acréscimos.
+	VlrAcrescOutr           *types.Float64                    `json:"VlrAcrescOutr,omitempty"`           // Valor de outros acréscimos.
 	VlrDesconto             *string                           `json:"VlrDesconto,omitempty"`             // Valor de desconto.
-	VlrDescOutr             *types.Float64                          `json:"VlrDescOutr,omitempty"`             // Valor de outros descontos.
+	VlrDescOutr             *types.Float64                    `json:"VlrDescOutr,omitempty"`             // Valor de outros descontos.
 	VlrMulta                *string                           `json:"VlrMulta,omitempty"`                // Valor da multa mais juros.
-	VlrSegCont              *types.Float64                          `json:"VlrSegCont,omitempty"`              // Valor do seguro conteúdo.
+	VlrSegCont              *types.Float64                    `json:"VlrSegCont,omitempty"`              // Valor do seguro conteúdo.
 	Sacado1                 *string                           `json:"Sacado1,omitempty"`                 // Primeira linha de informações do sacado.
 	Sacado2                 *string                           `json:"Sacado2,omitempty"`                 // Segunda linha de informações do sacado.
 	Sacado3                 *string                           `json:"Sacado3,omitempty"`                 // Terceira linha de informações do sacado.

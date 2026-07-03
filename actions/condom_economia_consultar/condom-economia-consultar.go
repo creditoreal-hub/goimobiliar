@@ -145,65 +145,65 @@ type RequestResponseHeader struct {
 }
 
 type RequestResponseBody struct {
-	IdEconomia                     *int     `json:"IdEconomia,omitempty"`                     // Chave principal da economia/unidade.
-	CodCondominio                  *int     `json:"CodCondominio,omitempty"`                  // Código do condomínio.
-	CodBloco                       *string  `json:"CodBloco,omitempty"`                       // Código do bloco do condomínio.
-	CodEconomia                    *string  `json:"CodEconomia,omitempty"`                    // Código da economia/unidade no bloco.
-	CodClasseImovel                *int     `json:"CodClasseImovel,omitempty"`                // Código da classe de imóvel.
-	DescrClasseImovel              *string  `json:"DescrClasseImovel,omitempty"`              // Descrição da classe de imóvel da economia/unidade.
-	CodPessoaCondomino             *int     `json:"CodPessoaCondomino,omitempty"`             // Código de pessoa do condômino desta economia/unidade.
-	CodPessoaDebContaCondomino     *int     `json:"CodPessoaDebContaCondomino,omitempty"`     // Código de pessoa do condômino para débito em conta.
-	CodPessoaDebContaLocat         *int     `json:"CodPessoaDebContaLocat,omitempty"`         // Código de pessoa do locatário para débito em conta.
-	Nome                           *string  `json:"Nome,omitempty"`                           // Nome do condômino.
-	Celular                        *string  `json:"Celular,omitempty"`                        // Número de celular do condomino.
-	Email                          *string  `json:"Email,omitempty"`                          // E-mail do condômino.
-	CodPessoaLocat                 *int     `json:"CodPessoaLocat,omitempty"`                 // Código de pessoa do locatário desta economia/unidade.
-	NomeLocat                      *string  `json:"NomeLocat,omitempty"`                      // Nome do locatário.
-	Contato                        *string  `json:"Contato,omitempty"`                        // Informações de contato.
-	TipoPessoa                     *string  `json:"TipoPessoa,omitempty"`                     // Tipo da pessoa.
-	CpfCnpj                        *string  `json:"CpfCnpj,omitempty"`                        // CPF/CNPJ do condômino.
-	QtdeDormitorios                *int     `json:"QtdeDormitorios,omitempty"`                // Quantidade de dormitórios.
+	IdEconomia                     *int           `json:"IdEconomia,omitempty"`                     // Chave principal da economia/unidade.
+	CodCondominio                  *int           `json:"CodCondominio,omitempty"`                  // Código do condomínio.
+	CodBloco                       *string        `json:"CodBloco,omitempty"`                       // Código do bloco do condomínio.
+	CodEconomia                    *string        `json:"CodEconomia,omitempty"`                    // Código da economia/unidade no bloco.
+	CodClasseImovel                *int           `json:"CodClasseImovel,omitempty"`                // Código da classe de imóvel.
+	DescrClasseImovel              *string        `json:"DescrClasseImovel,omitempty"`              // Descrição da classe de imóvel da economia/unidade.
+	CodPessoaCondomino             *int           `json:"CodPessoaCondomino,omitempty"`             // Código de pessoa do condômino desta economia/unidade.
+	CodPessoaDebContaCondomino     *int           `json:"CodPessoaDebContaCondomino,omitempty"`     // Código de pessoa do condômino para débito em conta.
+	CodPessoaDebContaLocat         *int           `json:"CodPessoaDebContaLocat,omitempty"`         // Código de pessoa do locatário para débito em conta.
+	Nome                           *string        `json:"Nome,omitempty"`                           // Nome do condômino.
+	Celular                        *string        `json:"Celular,omitempty"`                        // Número de celular do condomino.
+	Email                          *string        `json:"Email,omitempty"`                          // E-mail do condômino.
+	CodPessoaLocat                 *int           `json:"CodPessoaLocat,omitempty"`                 // Código de pessoa do locatário desta economia/unidade.
+	NomeLocat                      *string        `json:"NomeLocat,omitempty"`                      // Nome do locatário.
+	Contato                        *string        `json:"Contato,omitempty"`                        // Informações de contato.
+	TipoPessoa                     *string        `json:"TipoPessoa,omitempty"`                     // Tipo da pessoa.
+	CpfCnpj                        *types.CpfCnpj `json:"CpfCnpj,omitempty"`                        // CPF/CNPJ do condômino.
+	QtdeDormitorios                *int           `json:"QtdeDormitorios,omitempty"`                // Quantidade de dormitórios.
 	Fracao                         *types.Float64 `json:"Fracao,omitempty"`                         // Fracao da economia/unidade.
-	EmiteExtrato                   *string  `json:"EmiteExtrato,omitempty"`                   // Indica qual tipo de extrato.
-	ExportaLocacao                 *string  `json:"ExportaLocacao,omitempty"`                 // Indica se exporta para locação.
-	EmiteEtiqueta                  *string  `json:"EmiteEtiqueta,omitempty"`                  // Indica se emite etiqueta.
-	TarifaBoleto                   *string  `json:"TarifaBoleto,omitempty"`                   // Indica se o boleto tem tarifa.
+	EmiteExtrato                   *string        `json:"EmiteExtrato,omitempty"`                   // Indica qual tipo de extrato.
+	ExportaLocacao                 *string        `json:"ExportaLocacao,omitempty"`                 // Indica se exporta para locação.
+	EmiteEtiqueta                  *string        `json:"EmiteEtiqueta,omitempty"`                  // Indica se emite etiqueta.
+	TarifaBoleto                   *string        `json:"TarifaBoleto,omitempty"`                   // Indica se o boleto tem tarifa.
 	ValorTarifaBoleto              *types.Float64 `json:"ValorTarifaBoleto,omitempty"`              // Valor fixado da tarifa.
-	CodFornecedorAdministradoraLoc *int     `json:"CodFornecedorAdministradoraLoc,omitempty"` // Código de fornecedor da administradora da locação.
-	CodImovelNaAdministradoraLoc   *int     `json:"CodImovelNaAdministradoraLoc,omitempty"`   // Código do imóvel na locação desta administradora.
-	CodCompensacaoIntegrada        *string  `json:"CodCompensacaoIntegrada,omitempty"`        // Código do imóvel para compensação integrada com outra administradora da locação.
-	RetemBoleto                    *string  `json:"RetemBoleto,omitempty"`                    // Indica se deve reter boleto.
-	ExtratoNoSite                  *string  `json:"ExtratoNoSite,omitempty"`                  // Indica se deve mostrar extrato no site.
-	EnviarEmailBoleto              *string  `json:"EnviarEmailBoleto,omitempty"`              // Indica se deve enviar boleto por e-mail.
-	GerarReciboAluguel             *string  `json:"GerarReciboAluguel,omitempty"`             // Indica se deve gerar recibo de locação.
-	IsentarTaxaPorte               *string  `json:"IsentarTaxaPorte,omitempty"`               // Indica se deve isentar taxa porte.
-	AssociarAdvogado               *string  `json:"AssociarAdvogado,omitempty"`               // Indica se deve associar um advogado aos boletos.
-	CodFornecAdvogado              *int     `json:"CodFornecAdvogado,omitempty"`              // Código de fornecedor do advogado de cobrança dos boletos.
-	InibirMsgInadimplenciaBoleto   *string  `json:"InibirMsgInadimplenciaBoleto,omitempty"`   // Indica se deve inibir mensagem de inadimplência no boleto.
-	InibirCartaInadimplencia       *string  `json:"InibirCartaInadimplencia,omitempty"`       // Indica se deve inibir impressão da carta de inadimplência.
-	InibirEmailInadimplencia       *string  `json:"InibirEmailInadimplencia,omitempty"`       // Indica se deve inibir envio por email da carta de inadimplência.
-	InibirExportacao               *string  `json:"InibirExportacao,omitempty"`               // Indica se deve gerar recibo de locação.
-	ObservacaoEconomia             *string  `json:"ObservacaoEconomia,omitempty"`             // Observação sobre esta economia/unidade.
-	ObservacaoBoleto               *string  `json:"ObservacaoBoleto,omitempty"`               // Texto para constar nas observações do boleto.
-	LocalEnderCobr                 *string  `json:"LocalEnderCobr,omitempty"`                 // Local do endereço de cobrança.
-	TipoLogradCobr                 *string  `json:"TipoLogradCobr,omitempty"`                 // Tipo de logradouro abreviado ou por extenso ('R' ou 'RUA', 'AV' ou 'AVENIDA', etc.).
-	LogradouroCobr                 *string  `json:"LogradouroCobr,omitempty"`                 // Logradouro do endereço de cobrança.
-	NumeroCobr                     *int     `json:"NumeroCobr,omitempty"`                     // Número do endereço.
-	ComplementoCobr                *string  `json:"ComplementoCobr,omitempty"`                // Complemento do endereço.
-	CidadeCobr                     *string  `json:"CidadeCobr,omitempty"`                     // Cidade do endereço.
-	BairroCobr                     *string  `json:"BairroCobr,omitempty"`                     // Bairro do endereço.
-	CEPCobr                        *int     `json:"CEPCobr,omitempty"`                        // Número do CEP.
-	UFCobr                         *string  `json:"UFCobr,omitempty"`                         // Sigla da Unidade Federativa do endereço.
-	LocalEnderCorresp              *string  `json:"LocalEnderCorresp,omitempty"`              // Local do endereço de correpondência.
-	TipoLogradCorresp              *string  `json:"TipoLogradCorresp,omitempty"`              // Tipo de logradouro abreviado ou por extenso ('R' ou 'RUA', 'AV' ou 'AVENIDA', etc.).
-	LogradouroCorresp              *string  `json:"LogradouroCorresp,omitempty"`              // Logradouro do endereço de correpondência.
-	NumeroCorresp                  *int     `json:"NumeroCorresp,omitempty"`                  // Número do endereço.
-	ComplementoCorresp             *string  `json:"ComplementoCorresp,omitempty"`             // Complemento do endereço.
-	CidadeCorresp                  *string  `json:"CidadeCorresp,omitempty"`                  // Cidade do endereço.
-	BairroCorresp                  *string  `json:"BairroCorresp,omitempty"`                  // Bairro do endereço.
-	CEPCorresp                     *int     `json:"CEPCorresp,omitempty"`                     // Número do CEP.
-	UFCorresp                      *string  `json:"UFCorresp,omitempty"`                      // Sigla da Unidade Federativa do endereço.
-	Ativa                          *string  `json:"Ativa,omitempty"`                          // Indica se está ativa.
+	CodFornecedorAdministradoraLoc *int           `json:"CodFornecedorAdministradoraLoc,omitempty"` // Código de fornecedor da administradora da locação.
+	CodImovelNaAdministradoraLoc   *int           `json:"CodImovelNaAdministradoraLoc,omitempty"`   // Código do imóvel na locação desta administradora.
+	CodCompensacaoIntegrada        *string        `json:"CodCompensacaoIntegrada,omitempty"`        // Código do imóvel para compensação integrada com outra administradora da locação.
+	RetemBoleto                    *string        `json:"RetemBoleto,omitempty"`                    // Indica se deve reter boleto.
+	ExtratoNoSite                  *string        `json:"ExtratoNoSite,omitempty"`                  // Indica se deve mostrar extrato no site.
+	EnviarEmailBoleto              *string        `json:"EnviarEmailBoleto,omitempty"`              // Indica se deve enviar boleto por e-mail.
+	GerarReciboAluguel             *string        `json:"GerarReciboAluguel,omitempty"`             // Indica se deve gerar recibo de locação.
+	IsentarTaxaPorte               *string        `json:"IsentarTaxaPorte,omitempty"`               // Indica se deve isentar taxa porte.
+	AssociarAdvogado               *string        `json:"AssociarAdvogado,omitempty"`               // Indica se deve associar um advogado aos boletos.
+	CodFornecAdvogado              *int           `json:"CodFornecAdvogado,omitempty"`              // Código de fornecedor do advogado de cobrança dos boletos.
+	InibirMsgInadimplenciaBoleto   *string        `json:"InibirMsgInadimplenciaBoleto,omitempty"`   // Indica se deve inibir mensagem de inadimplência no boleto.
+	InibirCartaInadimplencia       *string        `json:"InibirCartaInadimplencia,omitempty"`       // Indica se deve inibir impressão da carta de inadimplência.
+	InibirEmailInadimplencia       *string        `json:"InibirEmailInadimplencia,omitempty"`       // Indica se deve inibir envio por email da carta de inadimplência.
+	InibirExportacao               *string        `json:"InibirExportacao,omitempty"`               // Indica se deve gerar recibo de locação.
+	ObservacaoEconomia             *string        `json:"ObservacaoEconomia,omitempty"`             // Observação sobre esta economia/unidade.
+	ObservacaoBoleto               *string        `json:"ObservacaoBoleto,omitempty"`               // Texto para constar nas observações do boleto.
+	LocalEnderCobr                 *string        `json:"LocalEnderCobr,omitempty"`                 // Local do endereço de cobrança.
+	TipoLogradCobr                 *string        `json:"TipoLogradCobr,omitempty"`                 // Tipo de logradouro abreviado ou por extenso ('R' ou 'RUA', 'AV' ou 'AVENIDA', etc.).
+	LogradouroCobr                 *string        `json:"LogradouroCobr,omitempty"`                 // Logradouro do endereço de cobrança.
+	NumeroCobr                     *int           `json:"NumeroCobr,omitempty"`                     // Número do endereço.
+	ComplementoCobr                *string        `json:"ComplementoCobr,omitempty"`                // Complemento do endereço.
+	CidadeCobr                     *string        `json:"CidadeCobr,omitempty"`                     // Cidade do endereço.
+	BairroCobr                     *string        `json:"BairroCobr,omitempty"`                     // Bairro do endereço.
+	CEPCobr                        *int           `json:"CEPCobr,omitempty"`                        // Número do CEP.
+	UFCobr                         *string        `json:"UFCobr,omitempty"`                         // Sigla da Unidade Federativa do endereço.
+	LocalEnderCorresp              *string        `json:"LocalEnderCorresp,omitempty"`              // Local do endereço de correpondência.
+	TipoLogradCorresp              *string        `json:"TipoLogradCorresp,omitempty"`              // Tipo de logradouro abreviado ou por extenso ('R' ou 'RUA', 'AV' ou 'AVENIDA', etc.).
+	LogradouroCorresp              *string        `json:"LogradouroCorresp,omitempty"`              // Logradouro do endereço de correpondência.
+	NumeroCorresp                  *int           `json:"NumeroCorresp,omitempty"`                  // Número do endereço.
+	ComplementoCorresp             *string        `json:"ComplementoCorresp,omitempty"`             // Complemento do endereço.
+	CidadeCorresp                  *string        `json:"CidadeCorresp,omitempty"`                  // Cidade do endereço.
+	BairroCorresp                  *string        `json:"BairroCorresp,omitempty"`                  // Bairro do endereço.
+	CEPCorresp                     *int           `json:"CEPCorresp,omitempty"`                     // Número do CEP.
+	UFCorresp                      *string        `json:"UFCorresp,omitempty"`                      // Sigla da Unidade Federativa do endereço.
+	Ativa                          *string        `json:"Ativa,omitempty"`                          // Indica se está ativa.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

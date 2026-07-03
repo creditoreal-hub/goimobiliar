@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CADASTRO_PESSOA_PESQUISAR"
@@ -155,11 +156,11 @@ type RequestResponseBody struct {
 }
 
 type RequestResponseBodyPessoa struct {
-	CodPessoa *int    `json:"CodPessoa,omitempty"` // Código da pessoa.
-	Nome      *string `json:"Nome,omitempty"`      // Nome da pessoa.
-	CpfCnpj   *int    `json:"CpfCnpj,omitempty"`   // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
-	Celular   *string `json:"Celular,omitempty"`   // Número de celular.
-	Email     *string `json:"Email,omitempty"`     // E-mail da pessoa.
+	CodPessoa *int           `json:"CodPessoa,omitempty"` // Código da pessoa.
+	Nome      *string        `json:"Nome,omitempty"`      // Nome da pessoa.
+	CpfCnpj   *types.CpfCnpj `json:"CpfCnpj,omitempty"`   // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
+	Celular   *string        `json:"Celular,omitempty"`   // Número de celular.
+	Email     *string        `json:"Email,omitempty"`     // E-mail da pessoa.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

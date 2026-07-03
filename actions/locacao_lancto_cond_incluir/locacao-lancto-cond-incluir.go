@@ -16,32 +16,32 @@ import (
 var ACTION = "LOCACAO_LANCTO_COND_INCLUIR"
 
 type ActionInput struct {
-	TestaAditivoLocacao         *string  `json:"TestaAditivoLocacao,omitempty"`         // *Testar existência de registro válido na tabela 'aditivo de locação'.
-	DataPagamento               *string  `json:"DataPagamento,omitempty"`               // Data de pagamento do lançamento (quando quitado).
-	LancarContaCorrenteLocacao  *string  `json:"LancarContaCorrenteLocacao,omitempty"`  // *Lançar na conta corrente de locação.
-	CompetenciaLocacao          *string  `json:"CompetenciaLocacao,omitempty"`          // *Competência.
-	TipoBoleto                  *string  `json:"TipoBoleto,omitempty"`                  // *Tipo de boleto para lançar.
-	CodImovel                   *int     `json:"CodImovel,omitempty"`                   // *Código do imóvel.
-	CodContratoLoc              *int     `json:"CodContratoLoc,omitempty"`              // *Código do contrato de locação deste imóvel.
-	Competencia                 *string  `json:"Competencia,omitempty"`                 // *Competência.
-	Complemento                 *string  `json:"Complemento,omitempty"`                 // Complemento.
-	CodTaxa                     *int     `json:"CodTaxa,omitempty"`                     // *Código da taxa que classifica este lançamento.
-	CobrarLocatarioProprietario *string  `json:"CobrarLocatarioProprietario,omitempty"` // *Cobrar do Locatario ou proprietario.
-	TotalParcelas               *int     `json:"TotalParcelas,omitempty"`               // *Quantidade total de parcelas.
-	NumeroParcela               *int     `json:"NumeroParcela,omitempty"`               // *Número da parcela do lançamento.
+	TestaAditivoLocacao         *string        `json:"TestaAditivoLocacao,omitempty"`         // *Testar existência de registro válido na tabela 'aditivo de locação'.
+	DataPagamento               *string        `json:"DataPagamento,omitempty"`               // Data de pagamento do lançamento (quando quitado).
+	LancarContaCorrenteLocacao  *string        `json:"LancarContaCorrenteLocacao,omitempty"`  // *Lançar na conta corrente de locação.
+	CompetenciaLocacao          *string        `json:"CompetenciaLocacao,omitempty"`          // *Competência.
+	TipoBoleto                  *string        `json:"TipoBoleto,omitempty"`                  // *Tipo de boleto para lançar.
+	CodImovel                   *int           `json:"CodImovel,omitempty"`                   // *Código do imóvel.
+	CodContratoLoc              *int           `json:"CodContratoLoc,omitempty"`              // *Código do contrato de locação deste imóvel.
+	Competencia                 *string        `json:"Competencia,omitempty"`                 // *Competência.
+	Complemento                 *string        `json:"Complemento,omitempty"`                 // Complemento.
+	CodTaxa                     *int           `json:"CodTaxa,omitempty"`                     // *Código da taxa que classifica este lançamento.
+	CobrarLocatarioProprietario *string        `json:"CobrarLocatarioProprietario,omitempty"` // *Cobrar do Locatario ou proprietario.
+	TotalParcelas               *int           `json:"TotalParcelas,omitempty"`               // *Quantidade total de parcelas.
+	NumeroParcela               *int           `json:"NumeroParcela,omitempty"`               // *Número da parcela do lançamento.
 	ValorReal                   *types.Float64 `json:"ValorReal,omitempty"`                   // *Valor real.
-	DataVencimento              *string  `json:"DataVencimento,omitempty"`              // *Data de vencimento do lançamento.
-	DataVigInicial              *string  `json:"DataVigInicial,omitempty"`              // Data inicial da vigência do contrato.
-	CodBarras                   *string  `json:"CodBarras,omitempty"`                   // Código de barras do boleto.
-	CodPessoaPagador            *int     `json:"CodPessoaPagador,omitempty"`            // Código do pagador no cadastro de pessoas.
-	NomePagador                 *string  `json:"NomePagador,omitempty"`                 // Nome do beneficiário. (Para liquidação de títulos se este for diferente do condomínio).
-	CpfCnpjPagador              *int     `json:"CpfCnpjPagador,omitempty"`              // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
-	TipoPessoaPagador           *string  `json:"TipoPessoaPagador,omitempty"`           // Tipo de pessoa do pagador. (Para liquidação de títulos se este for diferente do condomínio).
-	CodPessoaBenef              *int     `json:"CodPessoaBenef,omitempty"`              // Código de pessoa do beneficiário.
-	NomeBeneficiario            *string  `json:"NomeBeneficiario,omitempty"`            // Nome do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	CpfCnpjBeneficiario         *int     `json:"CpfCnpjBeneficiario,omitempty"`         // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	TipoPessoaBeneficiario      *string  `json:"TipoPessoaBeneficiario,omitempty"`      // Tipo de pessoa do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	NoDemonstrativo             *string  `json:"NoDemonstrativo,omitempty"`             // Indica a forma de lançamento no demonstrativo.
+	DataVencimento              *string        `json:"DataVencimento,omitempty"`              // *Data de vencimento do lançamento.
+	DataVigInicial              *string        `json:"DataVigInicial,omitempty"`              // Data inicial da vigência do contrato.
+	CodBarras                   *string        `json:"CodBarras,omitempty"`                   // Código de barras do boleto.
+	CodPessoaPagador            *int           `json:"CodPessoaPagador,omitempty"`            // Código do pagador no cadastro de pessoas.
+	NomePagador                 *string        `json:"NomePagador,omitempty"`                 // Nome do beneficiário. (Para liquidação de títulos se este for diferente do condomínio).
+	CpfCnpjPagador              *string        `json:"CpfCnpjPagador,omitempty"`              // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
+	TipoPessoaPagador           *string        `json:"TipoPessoaPagador,omitempty"`           // Tipo de pessoa do pagador. (Para liquidação de títulos se este for diferente do condomínio).
+	CodPessoaBenef              *int           `json:"CodPessoaBenef,omitempty"`              // Código de pessoa do beneficiário.
+	NomeBeneficiario            *string        `json:"NomeBeneficiario,omitempty"`            // Nome do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	CpfCnpjBeneficiario         *string        `json:"CpfCnpjBeneficiario,omitempty"`         // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	TipoPessoaBeneficiario      *string        `json:"TipoPessoaBeneficiario,omitempty"`      // Tipo de pessoa do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	NoDemonstrativo             *string        `json:"NoDemonstrativo,omitempty"`             // Indica a forma de lançamento no demonstrativo.
 }
 
 type RunMultiInput consts.RunMultiInput[*ActionInput]

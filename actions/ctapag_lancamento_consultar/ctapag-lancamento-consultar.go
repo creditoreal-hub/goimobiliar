@@ -176,16 +176,16 @@ type RequestResponseBody struct {
 	TotalParcelas          *int                           `json:"TotalParcelas,omitempty"`          // Quantidade total de parcelas.
 	Complemento            *string                        `json:"Complemento,omitempty"`            // Complemento descritivo do lançamento.
 	NumeroDocumento        *string                        `json:"NumeroDocumento,omitempty"`        // Número do documento do fornecedor.
-	ValorBruto             *types.Float64                       `json:"ValorBruto,omitempty"`             // Valor bruto do documento/parcela.
-	ValorServicos          *types.Float64                       `json:"ValorServicos,omitempty"`          // Valor dos serviços. Se não informado, a base de cálculo será ValorBruto.
-	ValorBaseCalculoIss    *types.Float64                       `json:"ValorBaseCalculoIss,omitempty"`    // Base de cálculo do ISS. Se não informado, a base de cálculo será ValorServicos.
-	ValorRetencaoInss      *types.Float64                       `json:"ValorRetencaoInss,omitempty"`      // Valor do INSS a ser retido.
-	ValorRetencaoIss       *types.Float64                       `json:"ValorRetencaoIss,omitempty"`       // Valor do ISS a ser retido.
-	ValorRetencaoIrf       *types.Float64                       `json:"ValorRetencaoIrf,omitempty"`       // Valor do IRF a ser retido.
-	ValorRetencaoFederal   *types.Float64                       `json:"ValorRetencaoFederal,omitempty"`   // Valor da retenção federal a ser retida.
-	ValorDesconto          *types.Float64                       `json:"ValorDesconto,omitempty"`          // Valor do desconto.
-	ValorJuros             *types.Float64                       `json:"ValorJuros,omitempty"`             // Valor dos juros.
-	Comissao               *types.Float64                       `json:"Comissao,omitempty"`               // Valor de comissão.
+	ValorBruto             *types.Float64                 `json:"ValorBruto,omitempty"`             // Valor bruto do documento/parcela.
+	ValorServicos          *types.Float64                 `json:"ValorServicos,omitempty"`          // Valor dos serviços. Se não informado, a base de cálculo será ValorBruto.
+	ValorBaseCalculoIss    *types.Float64                 `json:"ValorBaseCalculoIss,omitempty"`    // Base de cálculo do ISS. Se não informado, a base de cálculo será ValorServicos.
+	ValorRetencaoInss      *types.Float64                 `json:"ValorRetencaoInss,omitempty"`      // Valor do INSS a ser retido.
+	ValorRetencaoIss       *types.Float64                 `json:"ValorRetencaoIss,omitempty"`       // Valor do ISS a ser retido.
+	ValorRetencaoIrf       *types.Float64                 `json:"ValorRetencaoIrf,omitempty"`       // Valor do IRF a ser retido.
+	ValorRetencaoFederal   *types.Float64                 `json:"ValorRetencaoFederal,omitempty"`   // Valor da retenção federal a ser retida.
+	ValorDesconto          *types.Float64                 `json:"ValorDesconto,omitempty"`          // Valor do desconto.
+	ValorJuros             *types.Float64                 `json:"ValorJuros,omitempty"`             // Valor dos juros.
+	Comissao               *types.Float64                 `json:"Comissao,omitempty"`               // Valor de comissão.
 	CodigoBarras           *string                        `json:"CodigoBarras,omitempty"`           // Código de barras do documento (* obrigatório se origem for 'B')
 	PrevisaoReal           *string                        `json:"PrevisaoReal,omitempty"`           // Indicação de lançamento previsto ou real.
 	Frequencia             *string                        `json:"Frequencia,omitempty"`             // Define se lançamento é único ou permanente.
@@ -195,19 +195,19 @@ type RequestResponseBody struct {
 	CodPessoaBeneficiario  *int                           `json:"CodPessoaBeneficiario,omitempty"`  // Código da pessoa definida como beneficiário do pagamento.
 	NomeBeneficiario       *string                        `json:"NomeBeneficiario,omitempty"`       // Nome do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	TipoPessoaBeneficiario *string                        `json:"TipoPessoaBeneficiario,omitempty"` // Tipo de pessoa do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	CpfCnpjBeneficiario    *int                           `json:"CpfCnpjBeneficiario,omitempty"`    // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	CpfCnpjBeneficiario    *types.CpfCnpj                 `json:"CpfCnpjBeneficiario,omitempty"`    // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	CodPessoaPagador       *int                           `json:"CodPessoaPagador,omitempty"`       // Código do pagador no cadastro de pessoas.
 	NomePagador            *string                        `json:"NomePagador,omitempty"`            // Nome do beneficiário. (Para liquidação de títulos se este for diferente do condomínio).
 	TipoPessoaPagador      *string                        `json:"TipoPessoaPagador,omitempty"`      // Tipo de pessoa do pagador. (Para liquidação de títulos se este for diferente do condomínio).
-	CpfCnpjPagador         *int                           `json:"CpfCnpjPagador,omitempty"`         // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
+	CpfCnpjPagador         *types.CpfCnpj                 `json:"CpfCnpjPagador,omitempty"`         // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
 	Agrupados              *[]RequestResponseBodyAgrupado `json:"Agrupados,omitempty"`              // Lista de lançamentos agrupados no lançamento agrupador.
 }
 
 type RequestResponseBodyAgrupado struct {
-	NumeroLancto *int     `json:"NumeroLancto,omitempty"` // Number(10)	Número do lançamento.
-	Origem       *string  `json:"Origem,omitempty"`       // String(1)	Área de origem do lançamento.
-	CodigoOrigem *string  `json:"CodigoOrigem,omitempty"` // String(10)	Código do condomínio ou imóvel ou pessoa ou conta da administradora.
-	CodTaxa      *int     `json:"CodTaxa,omitempty"`      // Number(5)	Código da taxa que classifica este lançamento.
+	NumeroLancto *int           `json:"NumeroLancto,omitempty"` // Number(10)	Número do lançamento.
+	Origem       *string        `json:"Origem,omitempty"`       // String(1)	Área de origem do lançamento.
+	CodigoOrigem *string        `json:"CodigoOrigem,omitempty"` // String(10)	Código do condomínio ou imóvel ou pessoa ou conta da administradora.
+	CodTaxa      *int           `json:"CodTaxa,omitempty"`      // Number(5)	Código da taxa que classifica este lançamento.
 	Valor        *types.Float64 `json:"Valor,omitempty"`        // Number(12,2)	Valor do lançamento.
 }
 

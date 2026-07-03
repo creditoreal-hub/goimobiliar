@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "COMERC_INTERESSADO_CONSULTAR"
@@ -144,43 +145,43 @@ type RequestResponseHeader struct {
 }
 
 type RequestResponseBody struct {
-	CodInteressado      *int    `json:"CodInteressado,omitempty"`      // Código do Interessado.
-	Nome                *string `json:"Nome,omitempty"`                // Nome do Interessado.
-	TipoPessoa          *string `json:"TipoPessoa,omitempty"`          // Tipo da pessoa.
-	CpfCnpj             *int    `json:"CpfCnpj,omitempty"`             // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
-	RG                  *string `json:"RG,omitempty"`                  // Número do documento de identificação da pessoa física. Não preencher se for pessoa jurídica.
-	Ativo               *string `json:"Ativo,omitempty"`               // Indica se está ativo.
-	OrgaoExpedidor      *string `json:"OrgaoExpedidor,omitempty"`      // Órgão que expediu o documento de identificação informado.
-	DataNascimento      *string `json:"DataNascimento,omitempty"`      // Data de nascimento da pessoa física ou de criação da pessoa jurídica.
-	Celular             *string `json:"Celular,omitempty"`             // Número de celular.
-	Email               *string `json:"Email,omitempty"`               // E-mail do interessado.
-	Contato             *string `json:"Contato,omitempty"`             // Informações de pessoa de contato.
-	Observacao          *string `json:"Observacao,omitempty"`          // Mensagem de Observação.
-	DataCadastro        *string `json:"DataCadastro,omitempty"`        // Data do cadastro no sistema.
-	TipoEnder           *string `json:"TipoEnder,omitempty"`           // Tipo de endereço.
-	FormaEndereco       *int    `json:"FormaEndereco,omitempty"`       //
-	CEP                 *int    `json:"CEP,omitempty"`                 // Número do CEP.
-	TipoLograd          *string `json:"TipoLograd,omitempty"`          // Tipo de logradouro abreviado ou por extenso ('R' ou 'RUA', 'AV' ou 'AVENIDA', etc.).
-	Logradouro          *string `json:"Logradouro,omitempty"`          // Logradouro do endereço. Deve ser informado apenas o nome sem o tipo de logradouro.
-	Numero              *int    `json:"Numero,omitempty"`              // Número do endereço.
-	Complemento         *string `json:"Complemento,omitempty"`         // Complemento do endereço.
-	Bairro              *string `json:"Bairro,omitempty"`              // Bairro do endereço.
-	Cidade              *string `json:"Cidade,omitempty"`              // Cidade do endereço.
-	UF                  *string `json:"UF,omitempty"`                  // Sigla da Unidade Federativa do endereço.
-	Telefone1           *string `json:"Telefone1,omitempty"`           // Número de telefone principal.
-	Ramal1              *string `json:"Ramal1,omitempty"`              // Ramal do telefone principal.
-	Telefone2           *string `json:"Telefone2,omitempty"`           // Número de telefone alternativo.
-	Ramal2              *string `json:"Ramal2,omitempty"`              // Ramal do telefone alternativo.
-	UsuarioId           *string `json:"UsuarioId,omitempty"`           // Identificação do usuário.
-	IdAgencia           *int    `json:"IdAgencia,omitempty"`           // Identificação da Agência de Cadastro.
-	CodCadPessoa        *int    `json:"CodCadPessoa,omitempty"`        // Código do cadastro de pessoas (Quando Cadastrado).
-	TipoDivulgacao      *string `json:"TipoDivulgacao,omitempty"`      //	Tipo de divulgação que a pessoa chegou até a empresa.
-	TipoComercializacao *string `json:"TipoComercializacao,omitempty"` // Informa se a comercialização é Locação ou Venda.
-	CodVeiculo          *string `json:"CodVeiculo,omitempty"`          // Código veículo de comunicação.
-	CodCorretor         *int    `json:"CodCorretor,omitempty"`         // Código do Corretor.
-	NomeCorretor        *string `json:"NomeCorretor,omitempty"`        // Nome do Corretor.
-	ProcuraAtiva        *string `json:"ProcuraAtiva,omitempty"`        //  se a pessoa está com procura de imóveis ativa.
-	QualificaPessoa     *string `json:"QualificaPessoa,omitempty"`     // Qualificação da Pessoa.
+	CodInteressado      *int           `json:"CodInteressado,omitempty"`      // Código do Interessado.
+	Nome                *string        `json:"Nome,omitempty"`                // Nome do Interessado.
+	TipoPessoa          *string        `json:"TipoPessoa,omitempty"`          // Tipo da pessoa.
+	CpfCnpj             *types.CpfCnpj `json:"CpfCnpj,omitempty"`             // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
+	RG                  *string        `json:"RG,omitempty"`                  // Número do documento de identificação da pessoa física. Não preencher se for pessoa jurídica.
+	Ativo               *string        `json:"Ativo,omitempty"`               // Indica se está ativo.
+	OrgaoExpedidor      *string        `json:"OrgaoExpedidor,omitempty"`      // Órgão que expediu o documento de identificação informado.
+	DataNascimento      *string        `json:"DataNascimento,omitempty"`      // Data de nascimento da pessoa física ou de criação da pessoa jurídica.
+	Celular             *string        `json:"Celular,omitempty"`             // Número de celular.
+	Email               *string        `json:"Email,omitempty"`               // E-mail do interessado.
+	Contato             *string        `json:"Contato,omitempty"`             // Informações de pessoa de contato.
+	Observacao          *string        `json:"Observacao,omitempty"`          // Mensagem de Observação.
+	DataCadastro        *string        `json:"DataCadastro,omitempty"`        // Data do cadastro no sistema.
+	TipoEnder           *string        `json:"TipoEnder,omitempty"`           // Tipo de endereço.
+	FormaEndereco       *int           `json:"FormaEndereco,omitempty"`       //
+	CEP                 *int           `json:"CEP,omitempty"`                 // Número do CEP.
+	TipoLograd          *string        `json:"TipoLograd,omitempty"`          // Tipo de logradouro abreviado ou por extenso ('R' ou 'RUA', 'AV' ou 'AVENIDA', etc.).
+	Logradouro          *string        `json:"Logradouro,omitempty"`          // Logradouro do endereço. Deve ser informado apenas o nome sem o tipo de logradouro.
+	Numero              *int           `json:"Numero,omitempty"`              // Número do endereço.
+	Complemento         *string        `json:"Complemento,omitempty"`         // Complemento do endereço.
+	Bairro              *string        `json:"Bairro,omitempty"`              // Bairro do endereço.
+	Cidade              *string        `json:"Cidade,omitempty"`              // Cidade do endereço.
+	UF                  *string        `json:"UF,omitempty"`                  // Sigla da Unidade Federativa do endereço.
+	Telefone1           *string        `json:"Telefone1,omitempty"`           // Número de telefone principal.
+	Ramal1              *string        `json:"Ramal1,omitempty"`              // Ramal do telefone principal.
+	Telefone2           *string        `json:"Telefone2,omitempty"`           // Número de telefone alternativo.
+	Ramal2              *string        `json:"Ramal2,omitempty"`              // Ramal do telefone alternativo.
+	UsuarioId           *string        `json:"UsuarioId,omitempty"`           // Identificação do usuário.
+	IdAgencia           *int           `json:"IdAgencia,omitempty"`           // Identificação da Agência de Cadastro.
+	CodCadPessoa        *int           `json:"CodCadPessoa,omitempty"`        // Código do cadastro de pessoas (Quando Cadastrado).
+	TipoDivulgacao      *string        `json:"TipoDivulgacao,omitempty"`      //	Tipo de divulgação que a pessoa chegou até a empresa.
+	TipoComercializacao *string        `json:"TipoComercializacao,omitempty"` // Informa se a comercialização é Locação ou Venda.
+	CodVeiculo          *string        `json:"CodVeiculo,omitempty"`          // Código veículo de comunicação.
+	CodCorretor         *int           `json:"CodCorretor,omitempty"`         // Código do Corretor.
+	NomeCorretor        *string        `json:"NomeCorretor,omitempty"`        // Nome do Corretor.
+	ProcuraAtiva        *string        `json:"ProcuraAtiva,omitempty"`        //  se a pessoa está com procura de imóveis ativa.
+	QualificaPessoa     *string        `json:"QualificaPessoa,omitempty"`     // Qualificação da Pessoa.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

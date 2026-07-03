@@ -10,6 +10,7 @@ import (
 	"github.com/creditoreal-hub/goimobiliar/consts"
 	"github.com/creditoreal-hub/goimobiliar/erros"
 	"github.com/creditoreal-hub/goimobiliar/session"
+	"github.com/creditoreal-hub/goimobiliar/types"
 )
 
 var ACTION = "CADASTRO_PESSOA_CONSULTAR"
@@ -149,7 +150,7 @@ type RequestResponseBody struct {
 	EstadoCivil         *string                        `json:"EstadoCivil,omitempty"`         // Estado civil da pessoa.
 	Sexo                *string                        `json:"Sexo,omitempty"`                // Sexo/gênero da pessoa.
 	TipoPessoa          *string                        `json:"TipoPessoa,omitempty"`          // Tipo da pessoa.
-	CpfCnpj             *int                           `json:"CpfCnpj,omitempty"`             // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
+	CpfCnpj             *types.CpfCnpj                 `json:"CpfCnpj,omitempty"`             // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
 	RG                  *string                        `json:"RG,omitempty"`                  // Número do documento de identificação da pessoa física. Não preencher se for pessoa jurídica.
 	OrgaoExpedidor      *string                        `json:"OrgaoExpedidor,omitempty"`      // Órgão que expediu o documento de identificação informado.
 	DataNascimento      *string                        `json:"DataNascimento,omitempty"`      // Data de nascimento da pessoa física ou de criação da pessoa jurídica.

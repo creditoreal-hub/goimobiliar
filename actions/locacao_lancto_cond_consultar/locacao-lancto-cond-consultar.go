@@ -158,39 +158,39 @@ type RequestResponseBody struct {
 	CodBarras                  *string                     `json:"CodBarras,omitempty"`                  // Código de barras do boleto.
 	CodPessoaPagador           *int                        `json:"CodPessoaPagador,omitempty"`           // Código do pagador no cadastro de pessoas.
 	NomePagador                *string                     `json:"NomePagador,omitempty"`                // Nome do beneficiário. (Para liquidação de títulos se este for diferente do condomínio).
-	CpfCnpjPagador             *int                        `json:"CpfCnpjPagador,omitempty"`             // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
+	CpfCnpjPagador             *types.CpfCnpj              `json:"CpfCnpjPagador,omitempty"`             // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
 	TipoPessoaPagador          *string                     `json:"TipoPessoaPagador,omitempty"`          // Tipo de pessoa do pagador. (Para liquidação de títulos se este for diferente do condomínio).
 	CodPessoaBenef             *int                        `json:"CodPessoaBenef,omitempty"`             // Código de pessoa do beneficiário.
 	NomeBeneficiario           *string                     `json:"NomeBeneficiario,omitempty"`           // Nome do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	CpfCnpjBeneficiario        *int                        `json:"CpfCnpjBeneficiario,omitempty"`        // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	CpfCnpjBeneficiario        *types.CpfCnpj              `json:"CpfCnpjBeneficiario,omitempty"`        // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	TipoPessoaBeneficiario     *string                     `json:"TipoPessoaBeneficiario,omitempty"`     // Tipo de pessoa do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	FormaPagamento             *string                     `json:"FormaPagamento,omitempty"`             // Forma de pagamento do lançamento.
 	CodFornecedor              *int                        `json:"CodFornecedor,omitempty"`              // Código do fornecedor do lançamento.
 	DataPagamento              *string                     `json:"DataPagamento,omitempty"`              // Data de pagamento do lançamento (quando quitado).
 	QuitouBoletoCondominio     *string                     `json:"QuitouBoletoCondominio,omitempty"`     // quitar/quitou o DOC de condomínio de um imóvel, mesma funcionalidade do checkbox 'Baixa manual do doc de condomínio' da tela.
-	ValorTarifaDOC             *types.Float64                    `json:"ValorTarifaDOC,omitempty"`             // Valor da tarifa DOC, caso não seja o valor default do sistema.
+	ValorTarifaDOC             *types.Float64              `json:"ValorTarifaDOC,omitempty"`             // Valor da tarifa DOC, caso não seja o valor default do sistema.
 	Lista                      *[]RequestResponseBodyLista `json:"Lista,omitempty"`                      //
 	DocExportado               *string                     `json:"DocExportado,omitempty"`               // Indica se já foi exportado o boleto/DOC deste lançamento.
 	ExportaLocacao             *string                     `json:"ExportaLocacao,omitempty"`             // Indica se exporta para locação.
 }
 
 type RequestResponseBodyLista struct {
-	CodTaxa                     *int     `json:"CodTaxa,omitempty"`                     // Código da taxa que classifica este lançamento.
-	Descricao                   *string  `json:"Descricao,omitempty"`                   // Descrição da taxa.
-	CobrarLocatarioProprietario *string  `json:"CobrarLocatarioProprietario,omitempty"` // Cobrar do Locatario ou proprietario.
-	TipoBoleto                  *string  `json:"TipoBoleto,omitempty"`                  // Tipo de boleto para lançar.
-	DataVencimento              *string  `json:"DataVencimento,omitempty"`              // Data de vencimento do lançamento.
-	TotalParcelas               *int     `json:"TotalParcelas,omitempty"`               // Quantidade total de parcelas.
-	NumeroParcela               *int     `json:"NumeroParcela,omitempty"`               // Número da parcela do lançamento.
-	Complemento                 *string  `json:"Complemento,omitempty"`                 // Complemento.
-	PrevisaoReal                *string  `json:"PrevisaoReal,omitempty"`                // Indicação de lançamento previsto ou real.
-	DcBoletoLocatario           *string  `json:"DcBoletoLocatario,omitempty"`           // Débito ou crédito no boleto do locatário.
-	DcReciboProprietario        *string  `json:"DcReciboProprietario,omitempty"`        // Débito ou crédito no recibo de proprietário.
+	CodTaxa                     *int           `json:"CodTaxa,omitempty"`                     // Código da taxa que classifica este lançamento.
+	Descricao                   *string        `json:"Descricao,omitempty"`                   // Descrição da taxa.
+	CobrarLocatarioProprietario *string        `json:"CobrarLocatarioProprietario,omitempty"` // Cobrar do Locatario ou proprietario.
+	TipoBoleto                  *string        `json:"TipoBoleto,omitempty"`                  // Tipo de boleto para lançar.
+	DataVencimento              *string        `json:"DataVencimento,omitempty"`              // Data de vencimento do lançamento.
+	TotalParcelas               *int           `json:"TotalParcelas,omitempty"`               // Quantidade total de parcelas.
+	NumeroParcela               *int           `json:"NumeroParcela,omitempty"`               // Número da parcela do lançamento.
+	Complemento                 *string        `json:"Complemento,omitempty"`                 // Complemento.
+	PrevisaoReal                *string        `json:"PrevisaoReal,omitempty"`                // Indicação de lançamento previsto ou real.
+	DcBoletoLocatario           *string        `json:"DcBoletoLocatario,omitempty"`           // Débito ou crédito no boleto do locatário.
+	DcReciboProprietario        *string        `json:"DcReciboProprietario,omitempty"`        // Débito ou crédito no recibo de proprietário.
 	ValorPrevisao               *types.Float64 `json:"ValorPrevisao,omitempty"`               // Valor de previsão.
 	ValorReal                   *types.Float64 `json:"ValorReal,omitempty"`                   // Valor real.
 	ValorDiferenca              *types.Float64 `json:"ValorDiferenca,omitempty"`              // Valor de diferença entre Previsão/Real.
-	NumeroLanctoItem            *int     `json:"NumeroLanctoItem,omitempty"`            // Número do lançamento.
-	NoDemonstrativo             *string  `json:"NoDemonstrativo,omitempty"`             // Indica a forma de lançamento no demonstrativo.
+	NumeroLanctoItem            *int           `json:"NumeroLanctoItem,omitempty"`            // Número do lançamento.
+	NoDemonstrativo             *string        `json:"NoDemonstrativo,omitempty"`             // Indica a forma de lançamento no demonstrativo.
 }
 
 func handler(input *HandlerInput) (*HandlerOutput, error) {

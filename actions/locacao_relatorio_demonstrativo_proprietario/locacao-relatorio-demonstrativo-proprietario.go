@@ -155,7 +155,7 @@ type RequestResponseBodyProprietario struct {
 	CodPessoa                           *int                                                     `json:"CodPessoa,omitempty"`                           // Código de pessoa do proprietário.
 	Nome                                *string                                                  `json:"Nome,omitempty"`                                // Nome do proprietário.
 	TipoPessoa                          *string                                                  `json:"TipoPessoa,omitempty"`                          // Tipo da pessoa.
-	CpfCnpj                             *int                                                     `json:"CpfCnpj,omitempty"`                             // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
+	CpfCnpj                             *types.CpfCnpj                                           `json:"CpfCnpj,omitempty"`                             // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
 	Competencia                         *string                                                  `json:"Competencia,omitempty"`                         // Competência do demonstrativo.
 	FilialNome                          *string                                                  `json:"FilialNome,omitempty"`                          // Nome da filial.
 	Titulo                              *string                                                  `json:"Titulo,omitempty"`                              // Título do relatório.
@@ -171,7 +171,7 @@ type RequestResponseBodyProprietario struct {
 	CodPessoaBenef                      *int                                                     `json:"CodPessoaBenef,omitempty"`                      // Código de pessoa do beneficiário.
 	NomeBenef                           *string                                                  `json:"NomeBenef,omitempty"`                           // Nome do beneficiário.
 	LancamentosProprietario             *[]RequestResponseBodyProprietarioLancamentoProprietario `json:"LancamentosProprietario,omitempty"`             // Lançamentos do proprietário.
-	ValorLiquidoLancamentosProprietario *types.Float64                                                 `json:"ValorLiquidoLancamentosProprietario,omitempty"` // Valor liquido dos lançamentos do proprietário.
+	ValorLiquidoLancamentosProprietario *types.Float64                                           `json:"ValorLiquidoLancamentosProprietario,omitempty"` // Valor liquido dos lançamentos do proprietário.
 	Imoveis                             *[]RequestResponseBodyProprietarioLancamentoProprietario `json:"Imoveis,omitempty"`                             // Informações de cada imóvel.
 	ResumoTaxas                         *[]RequestResponseBodyProprietarioResumoTaxa             `json:"ResumoTaxas,omitempty"`                         // Resumo de valores por taxa.
 	ResumoGeral                         *RequestResponseBodyProprietarioResumoGeral              `json:"ResumoGeral,omitempty"`                         // Resumo geral de valores.
@@ -179,12 +179,12 @@ type RequestResponseBodyProprietario struct {
 }
 
 type RequestResponseBodyProprietarioLancamentoProprietario struct {
-	Data         *string  `json:"Data,omitempty"`         // Data do lançamento.
-	Competencia  *string  `json:"Competencia,omitempty"`  // Competência do demonstrativo.
-	Historico    *string  `json:"Historico,omitempty"`    // Histórico do lançamento.
+	Data         *string        `json:"Data,omitempty"`         // Data do lançamento.
+	Competencia  *string        `json:"Competencia,omitempty"`  // Competência do demonstrativo.
+	Historico    *string        `json:"Historico,omitempty"`    // Histórico do lançamento.
 	ValorDebito  *types.Float64 `json:"ValorDebito,omitempty"`  // Valor de débito do lançamento.
 	ValorCredito *types.Float64 `json:"ValorCredito,omitempty"` // Valor de crébito do lançamento.
-	NumeroLancto *int     `json:"NumeroLancto,omitempty"` // Número do lançamento.
+	NumeroLancto *int           `json:"NumeroLancto,omitempty"` // Número do lançamento.
 }
 
 type RequestResponseBodyProprietarioImovel struct {
@@ -193,33 +193,33 @@ type RequestResponseBodyProprietarioImovel struct {
 	Observacao                    *string                                                  `json:"Observacao,omitempty"`                    // Observações referente ao imóvel.
 	Locatarios                    *[]RequestResponseBodyProprietarioImovelLocatario        `json:"Locatarios,omitempty"`                    // Locatários do imóvel.
 	LancamentosImovel             *[]RequestResponseBodyProprietarioImovelLancamentoImovel `json:"LancamentosImovel,omitempty"`             // Lançamentos do imóvel.
-	ValorLiquidoLancamentosImovel *types.Float64                                                 `json:"ValorLiquidoLancamentosImovel,omitempty"` // Valor liquido dos lançamentos do imóvel.
+	ValorLiquidoLancamentosImovel *types.Float64                                           `json:"ValorLiquidoLancamentosImovel,omitempty"` // Valor liquido dos lançamentos do imóvel.
 }
 
 type RequestResponseBodyProprietarioImovelLocatario struct {
-	CodPessoaLocat   *int    `json:"CodPessoaLocat,omitempty"`   // Código de pessoa do locatário principal.
-	NomeLocat        *string `json:"NomeLocat,omitempty"`        // Nome do locatário.
-	CpfCnpjLocat     *int    `json:"CpfCnpjLocat,omitempty"`     // CPF ou CNPJ do locatário.
-	TipoPessoaLocat  *string `json:"TipoPessoaLocat,omitempty"`  // Tipo da pessoa.
-	DataDesocupacao  *string `json:"DataDesocupacao,omitempty"`  // Data de desocupação.
-	DataProxReajuste *string `json:"DataProxReajuste,omitempty"` // Data do próximo reajuste.
-	IndiceReajuste   *string `json:"IndiceReajuste,omitempty"`   // Indice do reajuste.
-	DataVigInicial   *string `json:"DataVigInicial,omitempty"`   // Data inicial da vigência do contrato.
-	GaranteAluguel   *string `json:"GaranteAluguel,omitempty"`   // Indica se tem garantia de aluguel.
-	GaranteEncargos  *string `json:"GaranteEncargos,omitempty"`  // Indica se tem garantia de encargos
+	CodPessoaLocat   *int           `json:"CodPessoaLocat,omitempty"`   // Código de pessoa do locatário principal.
+	NomeLocat        *string        `json:"NomeLocat,omitempty"`        // Nome do locatário.
+	CpfCnpjLocat     *types.CpfCnpj `json:"CpfCnpjLocat,omitempty"`     // CPF ou CNPJ do locatário.
+	TipoPessoaLocat  *string        `json:"TipoPessoaLocat,omitempty"`  // Tipo da pessoa.
+	DataDesocupacao  *string        `json:"DataDesocupacao,omitempty"`  // Data de desocupação.
+	DataProxReajuste *string        `json:"DataProxReajuste,omitempty"` // Data do próximo reajuste.
+	IndiceReajuste   *string        `json:"IndiceReajuste,omitempty"`   // Indice do reajuste.
+	DataVigInicial   *string        `json:"DataVigInicial,omitempty"`   // Data inicial da vigência do contrato.
+	GaranteAluguel   *string        `json:"GaranteAluguel,omitempty"`   // Indica se tem garantia de aluguel.
+	GaranteEncargos  *string        `json:"GaranteEncargos,omitempty"`  // Indica se tem garantia de encargos
 }
 
 type RequestResponseBodyProprietarioImovelLancamentoImovel struct {
-	Data         *string  `json:"Data,omitempty"`         // Data do lançamento.
-	Competencia  *string  `json:"Competencia,omitempty"`  // Competência do demonstrativo.
-	Historico    *string  `json:"Historico,omitempty"`    // Histórico do lançamento.
+	Data         *string        `json:"Data,omitempty"`         // Data do lançamento.
+	Competencia  *string        `json:"Competencia,omitempty"`  // Competência do demonstrativo.
+	Historico    *string        `json:"Historico,omitempty"`    // Histórico do lançamento.
 	ValorDebito  *types.Float64 `json:"ValorDebito,omitempty"`  // Valor de débito do lançamento.
 	ValorCredito *types.Float64 `json:"ValorCredito,omitempty"` // Valor de crébito do lançamento.
-	NumeroLancto *int     `json:"NumeroLancto,omitempty"` // Número do lançamento.
+	NumeroLancto *int           `json:"NumeroLancto,omitempty"` // Número do lançamento.
 }
 
 type RequestResponseBodyProprietarioResumoTaxa struct {
-	Historico    *string  `json:"Historico,omitempty"`    // Histórico do lançamento.
+	Historico    *string        `json:"Historico,omitempty"`    // Histórico do lançamento.
 	ValorDebito  *types.Float64 `json:"ValorDebito,omitempty"`  // Valor de débito do lançamento.
 	ValorCredito *types.Float64 `json:"ValorCredito,omitempty"` // Valor de crébito do lançamento.
 }
@@ -236,9 +236,9 @@ type RequestResponseBodyProprietarioResumoGeral struct {
 }
 
 type RequestResponseBodyProprietarioPagamento struct {
-	Data     *string  `json:"Data,omitempty"`     // Data do lançamento.
+	Data     *string        `json:"Data,omitempty"`     // Data do lançamento.
 	Valor    *types.Float64 `json:"Valor,omitempty"`    // Valor pago ao proprietário.
-	Situacao *string  `json:"Situacao,omitempty"` // Situação do pagamento.
+	Situacao *string        `json:"Situacao,omitempty"` // Situação do pagamento.
 	Saldo    *types.Float64 `json:"Saldo,omitempty"`    // Saldo do proprietário.
 }
 

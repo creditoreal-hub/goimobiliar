@@ -16,29 +16,29 @@ import (
 var ACTION = "CTAPAG_LANCAMENTO_ALTERAR"
 
 type ActionInput struct {
-	NumeroLancto               *int     `json:"NumeroLancto,omitempty"`               // *Número do lançamento.
-	CodPessoaFavorecido        *int     `json:"CodPessoaFavorecido,omitempty"`        // Código do favorecido no cadastro de pessoas.
-	FormaPagamento             *string  `json:"FormaPagamento,omitempty"`             // Forma de pagamento do lançamento.
-	DataVencimento             *string  `json:"DataVencimento,omitempty"`             // Data de vencimento do lançamento.
-	DataEmissao                *string  `json:"DataEmissao,omitempty"`                // Data de emissão do lançamento (se TipoDocumento for 'N').
-	DataPagamento              *string  `json:"DataPagamento,omitempty"`              // Data de pagamento do lançamento (quando quitado).
-	Competencia                *string  `json:"Competencia,omitempty"`                // Competência do lançamento no formato 'YYYYMM'.
-	CodTaxa                    *int     `json:"CodTaxa,omitempty"`                    // Código da taxa que classifica este lançamento.
-	DcCcCondominio             *string  `json:"DcCcCondominio,omitempty"`             // Indicador do movimento em conta corrente de condomínios.
-	Complemento                *string  `json:"Complemento,omitempty"`                // Complemento descritivo do lançamento.
-	ComplementoAdicional1      *string  `json:"ComplementoAdicional1,omitempty"`      // Informação de complemento extra.
-	ComplementoAdicional2      *string  `json:"ComplementoAdicional2,omitempty"`      // Informação de complemento extra.
-	ComplementoAdicional3      *string  `json:"ComplementoAdicional3,omitempty"`      // Informação de complemento extra.
-	ComplementoAdicional4      *string  `json:"ComplementoAdicional4,omitempty"`      // Informação de complemento extra.
-	ComplementoAdicional5      *string  `json:"ComplementoAdicional5,omitempty"`      // Informação de complemento extra.
-	ComplementoAdicional6      *string  `json:"ComplementoAdicional6,omitempty"`      // Informação de complemento extra.
-	ComplementoAdicional7      *string  `json:"ComplementoAdicional7,omitempty"`      // Informação de complemento extra.
-	ComplementoAdicional8      *string  `json:"ComplementoAdicional8,omitempty"`      // Informação de complemento extra.
-	NumeroDocumento            *string  `json:"NumeroDocumento,omitempty"`            // Número do documento do fornecedor.
-	PrevisaoReal               *string  `json:"PrevisaoReal,omitempty"`               // Indicação de lançamento previsto ou real.
-	ContaCorrente              *string  `json:"ContaCorrente,omitempty"`              // Número da conta corrente da qual originará o pagamento bancário quando aplicado.
-	CodigoBarras               *string  `json:"CodigoBarras,omitempty"`               // Código de barras do documento (* obrigatório se origem for 'B')
-	PixQrCode                  *string  `json:"PixQrCode,omitempty"`                  // QR Code.
+	NumeroLancto               *int           `json:"NumeroLancto,omitempty"`               // *Número do lançamento.
+	CodPessoaFavorecido        *int           `json:"CodPessoaFavorecido,omitempty"`        // Código do favorecido no cadastro de pessoas.
+	FormaPagamento             *string        `json:"FormaPagamento,omitempty"`             // Forma de pagamento do lançamento.
+	DataVencimento             *string        `json:"DataVencimento,omitempty"`             // Data de vencimento do lançamento.
+	DataEmissao                *string        `json:"DataEmissao,omitempty"`                // Data de emissão do lançamento (se TipoDocumento for 'N').
+	DataPagamento              *string        `json:"DataPagamento,omitempty"`              // Data de pagamento do lançamento (quando quitado).
+	Competencia                *string        `json:"Competencia,omitempty"`                // Competência do lançamento no formato 'YYYYMM'.
+	CodTaxa                    *int           `json:"CodTaxa,omitempty"`                    // Código da taxa que classifica este lançamento.
+	DcCcCondominio             *string        `json:"DcCcCondominio,omitempty"`             // Indicador do movimento em conta corrente de condomínios.
+	Complemento                *string        `json:"Complemento,omitempty"`                // Complemento descritivo do lançamento.
+	ComplementoAdicional1      *string        `json:"ComplementoAdicional1,omitempty"`      // Informação de complemento extra.
+	ComplementoAdicional2      *string        `json:"ComplementoAdicional2,omitempty"`      // Informação de complemento extra.
+	ComplementoAdicional3      *string        `json:"ComplementoAdicional3,omitempty"`      // Informação de complemento extra.
+	ComplementoAdicional4      *string        `json:"ComplementoAdicional4,omitempty"`      // Informação de complemento extra.
+	ComplementoAdicional5      *string        `json:"ComplementoAdicional5,omitempty"`      // Informação de complemento extra.
+	ComplementoAdicional6      *string        `json:"ComplementoAdicional6,omitempty"`      // Informação de complemento extra.
+	ComplementoAdicional7      *string        `json:"ComplementoAdicional7,omitempty"`      // Informação de complemento extra.
+	ComplementoAdicional8      *string        `json:"ComplementoAdicional8,omitempty"`      // Informação de complemento extra.
+	NumeroDocumento            *string        `json:"NumeroDocumento,omitempty"`            // Número do documento do fornecedor.
+	PrevisaoReal               *string        `json:"PrevisaoReal,omitempty"`               // Indicação de lançamento previsto ou real.
+	ContaCorrente              *string        `json:"ContaCorrente,omitempty"`              // Número da conta corrente da qual originará o pagamento bancário quando aplicado.
+	CodigoBarras               *string        `json:"CodigoBarras,omitempty"`               // Código de barras do documento (* obrigatório se origem for 'B')
+	PixQrCode                  *string        `json:"PixQrCode,omitempty"`                  // QR Code.
 	ValorBruto                 *types.Float64 `json:"ValorBruto,omitempty"`                 // Valor bruto do documento/parcela.
 	ValorServicos              *types.Float64 `json:"ValorServicos,omitempty"`              // Valor dos serviços. Se não informado, a base de cálculo será ValorBruto.
 	ValorBaseCalculoIss        *types.Float64 `json:"ValorBaseCalculoIss,omitempty"`        // Base de cálculo do ISS. Se não informado, a base de cálculo será ValorServicos.
@@ -50,14 +50,14 @@ type ActionInput struct {
 	ValorDescontoIncondicional *types.Float64 `json:"ValorDescontoIncondicional,omitempty"` // Valor do desconto incondicional. Este desconto é abatido da base de cálculo de impostos.
 	ValorDescontoCondicional   *types.Float64 `json:"ValorDescontoCondicional,omitempty"`   // Valor do desconto condicional. Este desconto não é abatido da base de cálculo de impostos.
 	Comissao                   *types.Float64 `json:"Comissao,omitempty"`                   // Valor de comissão.
-	NomePagador                *string  `json:"NomePagador,omitempty"`                // Nome do beneficiário. (Para liquidação de títulos se este for diferente do condomínio).
-	TipoPessoaPagador          *string  `json:"TipoPessoaPagador,omitempty"`          // Tipo de pessoa do pagador. (Para liquidação de títulos se este for diferente do condomínio).
-	CpfCnpjPagador             *int     `json:"CpfCnpjPagador,omitempty"`             // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
-	NomeBeneficiario           *string  `json:"NomeBeneficiario,omitempty"`           // Nome do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	TipoPessoaBeneficiario     *string  `json:"TipoPessoaBeneficiario,omitempty"`     // Tipo de pessoa do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	CpfCnpjBeneficiario        *int     `json:"CpfCnpjBeneficiario,omitempty"`        // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	RetirarQuitacao            *string  `json:"RetirarQuitacao,omitempty"`            // Retirar a data de quitação do lançamento. Valor default é 'N'.
-	RetirarRemessa             *string  `json:"RetirarRemessa,omitempty"`             // Retirar o vínculo do lançamento com uma remessa. Valor default é 'N'.
+	NomePagador                *string        `json:"NomePagador,omitempty"`                // Nome do beneficiário. (Para liquidação de títulos se este for diferente do condomínio).
+	TipoPessoaPagador          *string        `json:"TipoPessoaPagador,omitempty"`          // Tipo de pessoa do pagador. (Para liquidação de títulos se este for diferente do condomínio).
+	CpfCnpjPagador             *string        `json:"CpfCnpjPagador,omitempty"`             // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
+	NomeBeneficiario           *string        `json:"NomeBeneficiario,omitempty"`           // Nome do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	TipoPessoaBeneficiario     *string        `json:"TipoPessoaBeneficiario,omitempty"`     // Tipo de pessoa do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	CpfCnpjBeneficiario        *string        `json:"CpfCnpjBeneficiario,omitempty"`        // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	RetirarQuitacao            *string        `json:"RetirarQuitacao,omitempty"`            // Retirar a data de quitação do lançamento. Valor default é 'N'.
+	RetirarRemessa             *string        `json:"RetirarRemessa,omitempty"`             // Retirar o vínculo do lançamento com uma remessa. Valor default é 'N'.
 }
 
 type RunMultiInput consts.RunMultiInput[*ActionInput]
