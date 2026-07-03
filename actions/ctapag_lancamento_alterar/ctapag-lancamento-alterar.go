@@ -52,10 +52,10 @@ type ActionInput struct {
 	Comissao                   *types.Float64 `json:"Comissao,omitempty"`                   // Valor de comissão.
 	NomePagador                *string        `json:"NomePagador,omitempty"`                // Nome do beneficiário. (Para liquidação de títulos se este for diferente do condomínio).
 	TipoPessoaPagador          *string        `json:"TipoPessoaPagador,omitempty"`          // Tipo de pessoa do pagador. (Para liquidação de títulos se este for diferente do condomínio).
-	CpfCnpjPagador             *string        `json:"CpfCnpjPagador,omitempty"`             // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
+	CpfCnpjPagador             *int           `json:"CpfCnpjPagador,omitempty"`             // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
 	NomeBeneficiario           *string        `json:"NomeBeneficiario,omitempty"`           // Nome do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	TipoPessoaBeneficiario     *string        `json:"TipoPessoaBeneficiario,omitempty"`     // Tipo de pessoa do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	CpfCnpjBeneficiario        *string        `json:"CpfCnpjBeneficiario,omitempty"`        // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	CpfCnpjBeneficiario        *int           `json:"CpfCnpjBeneficiario,omitempty"`        // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	RetirarQuitacao            *string        `json:"RetirarQuitacao,omitempty"`            // Retirar a data de quitação do lançamento. Valor default é 'N'.
 	RetirarRemessa             *string        `json:"RetirarRemessa,omitempty"`             // Retirar o vínculo do lançamento com uma remessa. Valor default é 'N'.
 }

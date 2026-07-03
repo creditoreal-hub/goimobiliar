@@ -18,7 +18,7 @@ type ActionInput struct {
 	Nome                *string `json:"Nome,omitempty"`                // Nome/Razão Social do fornecedor.
 	NomeFantasia        *string `json:"NomeFantasia,omitempty"`        // Nome de fantasia do fornecedor.
 	TipoPessoa          *string `json:"TipoPessoa,omitempty"`          // *Tipo de pessoa do fornecedor.
-	CpfCnpj             *string `json:"CpfCnpj,omitempty"`             // *Se for tipo de pessoa física preencher com o CPF. Se for tipo de pessoa jurídica preencher com o CNPJ. Se o tipo de pessoa não for informado então este campo deve ser vazio.
+	CpfCnpj             *int    `json:"CpfCnpj,omitempty"`             // *Se for tipo de pessoa física preencher com o CPF. Se for tipo de pessoa jurídica preencher com o CNPJ. Se o tipo de pessoa não for informado então este campo deve ser vazio.
 	InscricaoInss       *string `json:"InscricaoInss,omitempty"`       // CPF/CNPJ do fornecedor.
 	InscricaoMunicipal  *string `json:"InscricaoMunicipal,omitempty"`  // Inscrição municipal do fornecedor.
 	Categoria           *string `json:"Categoria,omitempty"`           // *Categoria do fornecedor.

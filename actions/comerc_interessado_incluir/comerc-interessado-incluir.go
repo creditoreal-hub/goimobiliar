@@ -17,7 +17,7 @@ var ACTION = "COMERC_INTERESSADO_INCLUIR"
 type ActionInput struct {
 	Nome                *string `json:"Nome,omitempty"`                // *Nome do Interessado.
 	TipoPessoa          *string `json:"TipoPessoa,omitempty"`          // Tipo da pessoa.
-	CpfCnpj             *string `json:"CpfCnpj,omitempty"`             // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
+	CpfCnpj             *int    `json:"CpfCnpj,omitempty"`             // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
 	RG                  *string `json:"RG,omitempty"`                  // Número do documento de identificação da pessoa física. Não preencher se for pessoa jurídica.
 	Ativo               *string `json:"Ativo,omitempty"`               // Indica se está ativo.
 	OrgaoExpedidor      *string `json:"OrgaoExpedidor,omitempty"`      // Órgão que expediu o documento de identificação informado.

@@ -28,7 +28,7 @@ type ActionInput struct {
 	CodIntegracaoSist *string                `json:"CodIntegracaoSist,omitempty"` // Código de integração/migração de sistema.
 	Sexo              *string                `json:"Sexo,omitempty"`              // Sexo/gênero da pessoa. Valor default é ' '.
 	TipoPessoa        *string                `json:"TipoPessoa,omitempty"`        // Tipo da pessoa. Valor default é ' '.
-	CpfCnpj           *string                `json:"CpfCnpj,omitempty"`           // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
+	CpfCnpj           *int                   `json:"CpfCnpj,omitempty"`           // Se for tipo de pessoa física o valor é um CPF. Se for tipo de pessoa jurídica o valor é um CNPJ. Se o tipo de pessoa não for informado então este campo é vazio.
 	RG                *string                `json:"RG,omitempty"`                // Número do documento de identificação da pessoa física. Não preencher se for pessoa jurídica.
 	OrgaoExpedidor    *string                `json:"OrgaoExpedidor,omitempty"`    // Órgão que expediu o documento de identificação informado.
 	DataExpedicao     *string                `json:"DataExpedicao,omitempty"`     // A data de expedição do documento de identificação informado.

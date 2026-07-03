@@ -70,7 +70,7 @@ type ActionInput struct {
 	CpfCnpjPagador             *string        `json:"CpfCnpjPagador,omitempty"`             // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
 	NomeBeneficiario           *string        `json:"NomeBeneficiario,omitempty"`           // Nome do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	TipoPessoaBeneficiario     *string        `json:"TipoPessoaBeneficiario,omitempty"`     // Tipo de pessoa do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	CpfCnpjBeneficiario        *string        `json:"CpfCnpjBeneficiario,omitempty"`        // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	CpfCnpjBeneficiario        *int           `json:"CpfCnpjBeneficiario,omitempty"`        // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	GrupoSoma                  *int           `json:"GrupoSoma,omitempty"`                  // Código do grupo de soma.
 	CodigoImagem               *string        `json:"CodigoImagem,omitempty"`               // Código da imagem do lançamento.
 }

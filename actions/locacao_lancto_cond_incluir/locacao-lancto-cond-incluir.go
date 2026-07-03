@@ -35,11 +35,11 @@ type ActionInput struct {
 	CodBarras                   *string        `json:"CodBarras,omitempty"`                   // Código de barras do boleto.
 	CodPessoaPagador            *int           `json:"CodPessoaPagador,omitempty"`            // Código do pagador no cadastro de pessoas.
 	NomePagador                 *string        `json:"NomePagador,omitempty"`                 // Nome do beneficiário. (Para liquidação de títulos se este for diferente do condomínio).
-	CpfCnpjPagador              *string        `json:"CpfCnpjPagador,omitempty"`              // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
+	CpfCnpjPagador              *int           `json:"CpfCnpjPagador,omitempty"`              // CPF ou CNPJ do pagador. (Para liquidação de títulos se este for diferente do condomínio).
 	TipoPessoaPagador           *string        `json:"TipoPessoaPagador,omitempty"`           // Tipo de pessoa do pagador. (Para liquidação de títulos se este for diferente do condomínio).
 	CodPessoaBenef              *int           `json:"CodPessoaBenef,omitempty"`              // Código de pessoa do beneficiário.
 	NomeBeneficiario            *string        `json:"NomeBeneficiario,omitempty"`            // Nome do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
-	CpfCnpjBeneficiario         *string        `json:"CpfCnpjBeneficiario,omitempty"`         // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
+	CpfCnpjBeneficiario         *int           `json:"CpfCnpjBeneficiario,omitempty"`         // CPF ou CNPJ do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	TipoPessoaBeneficiario      *string        `json:"TipoPessoaBeneficiario,omitempty"`      // Tipo de pessoa do beneficiário. (Para liquidação de títulos se este for diferente do fornecedor/favorecido).
 	NoDemonstrativo             *string        `json:"NoDemonstrativo,omitempty"`             // Indica a forma de lançamento no demonstrativo.
 }
