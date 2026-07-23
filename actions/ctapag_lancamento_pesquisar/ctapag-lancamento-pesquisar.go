@@ -16,30 +16,30 @@ import (
 var ACTION = "CTAPAG_LANCAMENTO_PESQUISAR"
 
 type ActionInput struct {
-	TipoPesquisa          *string  `json:"TipoPesquisa,omitempty"`          // *Indica o tipo de pesquisa/origem.
-	CodCondominio         *int     `json:"CodCondominio,omitempty"`         // Código do condomínio do lançamento (se origem for 'C').
-	CodImovel             *int     `json:"CodImovel,omitempty"`             // Código do imóvel do lançamento (se origem for 'I').
-	CodPessoaProprietario *int     `json:"CodPessoaProprietario,omitempty"` // Código do proprietário.
-	CodPlanoContaAdm      *int     `json:"CodPlanoContaAdm,omitempty"`      // Código da conta no plano de contas da administradora (se origem for 'A').
-	CodBloco              *string  `json:"CodBloco,omitempty"`              // Código do bloco do lançamento (se origem for 'C').
-	CodFornecedor         *int     `json:"CodFornecedor,omitempty"`         // Código do fornecedor do lançamento.
-	CodPessoaFavorecido   *int     `json:"CodPessoaFavorecido,omitempty"`   // Código do favorecido no cadastro de pessoas.
-	NomeFavorecido        *string  `json:"NomeFavorecido,omitempty"`        // Nome do favorecido.
-	GrupoSoma             *int     `json:"GrupoSoma,omitempty"`             // Código do grupo de soma.
-	CodTaxa               *int     `json:"CodTaxa,omitempty"`               // Código da taxa que classifica este lançamento.
-	TipoPeriodo           *string  `json:"TipoPeriodo,omitempty"`           // Indica o tipo de período a ser pesquisado. Valor default é 'V'.
-	DataInicial           *string  `json:"DataInicial,omitempty"`           // Primeiro dia do período a ser pesquisado.
-	DataFinal             *string  `json:"DataFinal,omitempty"`             // Último dia do período a ser pesquisado.
-	Competencia           *string  `json:"Competencia,omitempty"`           // Competência do lançamento no formato 'YYYYMM'.
-	Status                *string  `json:"Status,omitempty"`                // Indica a situação dos lançamentos a serem pesquisados. Valor default é 'T'.
-	PrevisaoReal          *string  `json:"PrevisaoReal,omitempty"`          // Indica o tipo dos lançamentos a serem pesquisados. Valor default é 'T'.
-	NumeroDocumento       *string  `json:"NumeroDocumento,omitempty"`       // Número do documento do fornecedor.
-	UsuarioInclusao       *string  `json:"UsuarioInclusao,omitempty"`       // Usuário que incluiu o lançamento.
+	TipoPesquisa          *string        `json:"TipoPesquisa,omitempty"`          // *Indica o tipo de pesquisa/origem.
+	CodCondominio         *int           `json:"CodCondominio,omitempty"`         // Código do condomínio do lançamento (se origem for 'C').
+	CodImovel             *int           `json:"CodImovel,omitempty"`             // Código do imóvel do lançamento (se origem for 'I').
+	CodPessoaProprietario *int           `json:"CodPessoaProprietario,omitempty"` // Código do proprietário.
+	CodPlanoContaAdm      *int           `json:"CodPlanoContaAdm,omitempty"`      // Código da conta no plano de contas da administradora (se origem for 'A').
+	CodBloco              *string        `json:"CodBloco,omitempty"`              // Código do bloco do lançamento (se origem for 'C').
+	CodFornecedor         *int           `json:"CodFornecedor,omitempty"`         // Código do fornecedor do lançamento.
+	CodPessoaFavorecido   *int           `json:"CodPessoaFavorecido,omitempty"`   // Código do favorecido no cadastro de pessoas.
+	NomeFavorecido        *string        `json:"NomeFavorecido,omitempty"`        // Nome do favorecido.
+	GrupoSoma             *int           `json:"GrupoSoma,omitempty"`             // Código do grupo de soma.
+	CodTaxa               *int           `json:"CodTaxa,omitempty"`               // Código da taxa que classifica este lançamento.
+	TipoPeriodo           *string        `json:"TipoPeriodo,omitempty"`           // Indica o tipo de período a ser pesquisado. Valor default é 'V'.
+	DataInicial           *string        `json:"DataInicial,omitempty"`           // Primeiro dia do período a ser pesquisado.
+	DataFinal             *string        `json:"DataFinal,omitempty"`             // Último dia do período a ser pesquisado.
+	Competencia           *string        `json:"Competencia,omitempty"`           // Competência do lançamento no formato 'YYYYMM'.
+	Status                *string        `json:"Status,omitempty"`                // Indica a situação dos lançamentos a serem pesquisados. Valor default é 'T'.
+	PrevisaoReal          *string        `json:"PrevisaoReal,omitempty"`          // Indica o tipo dos lançamentos a serem pesquisados. Valor default é 'T'.
+	NumeroDocumento       *string        `json:"NumeroDocumento,omitempty"`       // Número do documento do fornecedor.
+	UsuarioInclusao       *string        `json:"UsuarioInclusao,omitempty"`       // Usuário que incluiu o lançamento.
 	ValorLiquido          *types.Float64 `json:"ValorLiquido,omitempty"`          // Valor líquido do lançamento. Valor default é '0'.
 	ValorBruto            *types.Float64 `json:"ValorBruto,omitempty"`            // Valor bruto do lançamento. Valor default é '0'.
 	ValorPagamento        *types.Float64 `json:"ValorPagamento,omitempty"`        // Valor do pagamento. Valor default é '0'.
-	QtdeLinhas            *int     `json:"QtdeLinhas,omitempty"`            // Quantidade máxima de linhas de resposta, utilizado para obter resultados por segmentos (paginação). Se não for informado então a resposta conterá todas as linhas selecionadas pela ação. Valor default é '0'.
-	ProximasLinhas        *string  `json:"ProximasLinhas,omitempty"`        // Campo opcional indicando que, ao invés de executar a ação, solicita as linhas do próximo segmento. Valor default é 'N'.
+	QtdeLinhas            *int           `json:"QtdeLinhas,omitempty"`            // Quantidade máxima de linhas de resposta, utilizado para obter resultados por segmentos (paginação). Se não for informado então a resposta conterá todas as linhas selecionadas pela ação. Valor default é '0'.
+	ProximasLinhas        *string        `json:"ProximasLinhas,omitempty"`        // Campo opcional indicando que, ao invés de executar a ação, solicita as linhas do próximo segmento. Valor default é 'N'.
 }
 
 type RunMultiInput consts.RunMultiInput[*ActionInput]
@@ -172,19 +172,20 @@ type RequestResponseBody struct {
 }
 
 type RequestResponseBodyLancamento struct {
-	NumeroLancto     *int     `json:"NumeroLancto,omitempty"`     // Número do lançamento.
-	DataVencimento   *string  `json:"DataVencimento,omitempty"`   // Data de vencimento do lançamento.
-	CodTaxa          *int     `json:"CodTaxa,omitempty"`          // Código da taxa que classifica este lançamento.
-	DescrTaxa        *string  `json:"DescrTaxa,omitempty"`        // Descrição da taxa que classifica este lançamento.
-	NomeFavorecido   *string  `json:"NomeFavorecido,omitempty"`   // Nome do favorecido.
+	NumeroLancto     *int           `json:"NumeroLancto,omitempty"`     // Número do lançamento.
+	DataVencimento   *string        `json:"DataVencimento,omitempty"`   // Data de vencimento do lançamento.
+	CodTaxa          *int           `json:"CodTaxa,omitempty"`          // Código da taxa que classifica este lançamento.
+	DescrTaxa        *string        `json:"DescrTaxa,omitempty"`        // Descrição da taxa que classifica este lançamento.
+	NomeFavorecido   *string        `json:"NomeFavorecido,omitempty"`   // Nome do favorecido.
 	ValorLiquido     *types.Float64 `json:"ValorLiquido,omitempty"`     // Valor líquido do lançamento.
-	PrevisaoReal     *string  `json:"PrevisaoReal,omitempty"`     // Indica o tipo dos lançamentos a serem pesquisados.
-	Frequencia       *string  `json:"Frequencia,omitempty"`       // Define se lançamento é único ou permanente.
-	Pago             *string  `json:"Pago,omitempty"`             // Indica se o lançamento está pago.
-	NumeroDocumento  *string  `json:"NumeroDocumento,omitempty"`  // Número do documento do fornecedor.
-	UsuarioSuspensao *string  `json:"UsuarioSuspensao,omitempty"` // Usuário que suspendeu o lançamento.
-	DataSuspensao    *string  `json:"DataSuspensao,omitempty"`    // Data da suspensão do lançamento.
-	MotivoSuspensao  *string  `json:"MotivoSuspensao,omitempty"`  // Motivo da suspensão do lançamento.
+	ValorBruto       *types.Float64 `json:"ValorBruto,omitempty"`       // Valor líquido do lançamento.
+	PrevisaoReal     *string        `json:"PrevisaoReal,omitempty"`     // Indica o tipo dos lançamentos a serem pesquisados.
+	Frequencia       *string        `json:"Frequencia,omitempty"`       // Define se lançamento é único ou permanente.
+	Pago             *string        `json:"Pago,omitempty"`             // Indica se o lançamento está pago.
+	NumeroDocumento  *string        `json:"NumeroDocumento,omitempty"`  // Número do documento do fornecedor.
+	UsuarioSuspensao *string        `json:"UsuarioSuspensao,omitempty"` // Usuário que suspendeu o lançamento.
+	DataSuspensao    *string        `json:"DataSuspensao,omitempty"`    // Data da suspensão do lançamento.
+	MotivoSuspensao  *string        `json:"MotivoSuspensao,omitempty"`  // Motivo da suspensão do lançamento.
 	ValorPagamento   *types.Float64 `json:"ValorPagamento,omitempty"`   // Valor do pagamento.
 }
 
