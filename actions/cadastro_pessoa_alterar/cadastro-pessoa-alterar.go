@@ -44,6 +44,8 @@ type ActionInput struct {
 	CodBanco          *int                   `json:"CodBanco,omitempty"`          // *Código do banco.
 	CodAgencia        *int                   `json:"CodAgencia,omitempty"`        // *Código da agência bancária.
 	ContaCorrente     *string                `json:"ContaCorrente,omitempty"`     // *Número da conta corrente desta pessoa.
+	TipoChavePix      string                 `json:"TipoChavePix,omitempty"`      // Tipo da chave PIX. Valores válidos conforme conteúdo da tabela 'TIPCHAVE_PIX'
+	ChavePix          string                 `json:"ChavePix,omitempty"`          // Chave PIX.
 	Classificacao     *string                `json:"Classificacao,omitempty"`     // Código de classificacão desta pessoa.
 	Observacao        *string                `json:"Observacao,omitempty"`        // Texto de observação desta pessoa.
 	EstadoCivil       *string                `json:"EstadoCivil,omitempty"`       // Estado civil da pessoa.
