@@ -41,6 +41,8 @@ type ActionInput struct {
 	Celular             *string `json:"Celular,omitempty"`             // Número do celular do fornecedor.
 	Email               *string `json:"Email,omitempty"`               // E-mail do fornecedor.
 	FormaPagamento      *string `json:"FormaPagamento,omitempty"`      // *Forma de pagamento do fornecedor.
+	TipoChavePix        *string `json:"TipoChavePix,omitempty"`        // Tipo da chave PIX.
+	ChavePix            *string `json:"ChavePix,omitempty"`            // Chave PIX.
 	TipoDocumento       *string `json:"TipoDocumento,omitempty"`       // *Tipos de documentos.
 	EmiteNFSE           *string `json:"EmiteNFSE,omitempty"`           // Indica se fornecedor emite NFSe. Valor default é 'S'.
 	Ativo               *string `json:"Ativo,omitempty"`               // Indica se está ativo. Valor default é 'S'.
