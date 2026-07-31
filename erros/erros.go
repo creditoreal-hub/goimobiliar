@@ -3,6 +3,7 @@ package erros
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 )
 
 type RequestResponse struct {
@@ -52,7 +53,7 @@ func CheckResponseError(body *[]byte) error {
 			return errors.New("imobiliar: erro lançado, mas nenhum encontrado")
 		}
 
-		return errors.New(responseBody.Body.Erros[0].Mensagem)
+		return fmt.Errorf("%v: %v", responseBody.Body.Erros[0].Mensagem, responseBody.Body.Erros[0].Campo)
 	}
 
 	return nil
